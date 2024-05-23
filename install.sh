@@ -1,6 +1,10 @@
-cd ~/.config/
+#!/bin/sh
+CONFIG_PATH=$(pwd)
 
-ln -sf /home/avkorz/Documents/hyprconf/hypr hypr
-ln -sf /home/avkorz/Documents/hyprconf/rofi rofi
-ln -sf /home/avkorz/Documents/hyprconf/kitty kitty
-ln -sf /home/avkorz/Documents/hyprconf/waybar waybar
+cd $HOME/.config/
+
+ln -sf $CONFIG_PATH/hypr
+ln -sf $CONFIG_PATH/rofi
+ln -sf $CONFIG_PATH/kitty
+ln -sf $CONFIG_PATH/waybar
+ln -sf $CONFIG_PATH/hyprland_scripts
