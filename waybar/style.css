@@ -1,10 +1,16 @@
 * {
   border: none;
   border-radius: 10;
-  margin: 0 4px;
+  margin: 3 6 0 6px;
+  padding: 0 10px;
   font-family: "Firа Code Nerd Font";
   font-size: 15px;
   min-height: 28px;
+}
+
+*:hover {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.85;
 }
 
 window#waybar {
@@ -16,42 +22,21 @@ window#waybar.hidden {
 }
 
 #window {
-  margin-top: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
-  transition: none;
   color: transparent;
   background: transparent;
 }
 
 #network {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  transition: none;
   color: #161320;
   background: #bd93f9;
 }
 
 #pulseaudio {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  transition: none;
   color: #1a1826;
   background: #fae3b0;
 }
 
 #battery {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
   transition: none;
   color: #161320;
   background: #b5e8e0;
@@ -81,74 +66,35 @@ window#waybar.hidden {
 }
 
 #backlight {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  transition: none;
   color: #161320;
   background: #f8bd96;
 }
 #clock {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  transition: none;
   color: #161320;
   background: #abe9b3;
 }
 
 #memory {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  transition: none;
   color: #161320;
   background: #ddb6f2;
 }
+
 #disk {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  transition: none;
   color: #161320;
   background: #b6b9f2;
 }
+
 #cpu {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  transition: none;
   color: #161320;
   background: #96cdfb;
 }
 
 #tray {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  transition: none;
   color: #b5e8e0;
   background: #161320;
 }
 
 #custom-launcher {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 5px;
-  padding-right: 10px;
-  transition: none;
   color: #89dceb;
   background: #161320;
 }
@@ -157,22 +103,12 @@ window#waybar.hidden {
 #custom-notifications,
 #custom-resume-pause,
 #custom-play-next {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 5px;
-  padding-right: 10px;
-  transition: none;
   color: #89dceb;
   background: #161320;
 }
 
-#custom-play-next, #custom-resume-pause {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  transition: none;
+#custom-play-next,
+#custom-resume-pause {
   color: #161320;
   background: #f2cdcd;
 }
