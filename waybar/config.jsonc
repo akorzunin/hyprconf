@@ -2,7 +2,14 @@
   "layer": "top",
   "modules-left": ["custom/launcher", "custom/windows", "custom/notifications"],
   "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "disk", "pulseaudio", "sway/language"],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    "pulseaudio",
+    "custom/resume-pause",
+    "custom/play-next"
+  ],
 
   "pulseaudio": {
     "tooltip": false,
@@ -38,7 +45,7 @@
     "format-alt": "{time} {icon}"
   },
   "clock": {
-    "format": "{:%H:%M | %d/%m/%Y}",
+    "format": "{:%a %d %b %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "cpu": {
@@ -66,21 +73,36 @@
       "default": " "
     },
     "escape": true,
-    "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
-    "on-click": "playerctl play-pause"
+    "exec": "/bin/python3.12 $HOME/.config/hyprland_scripts/mediaplayer.py 2> /dev/null",
+    "on-click": "playerctl play-pause",
+    "exec-on-event": true
   },
   "custom/launcher": {
-    "format": " ",
+    "format": "  ",
     "on-click": "rofi -show drun",
-    "on-click-right": "killall rofi"
+    "on-click-right": "killall rofi",
+    "tooltip-format": "Open new window"
   },
   "custom/windows": {
-    "format": " ",
+    "format": "  ",
     "on-click": "rofi -show window",
-    "on-click-right": "killall rofi"
+    "on-click-right": "killall rofi",
+    "tooltip-format": "Go to opened window"
   },
   "custom/notifications": {
-    "format": "󰍡 ",
-    "on-click": "sleep 0.1; swaync-client -t -sw"
+    "format": " 󰍡 ",
+    "on-click": "sleep 0.1; swaync-client -t -sw",
+    "tooltip-format": "Show notifications bar"
+  },
+  "custom/play-next": {
+    "format": " 󰒬 ",
+    "on-click": "sleep 0.1; playerctl next",
+    "tooltip": true,
+    "tooltip-format": "Play next"
+  },
+  "custom/resume-pause": {
+    "format": " 󰐎 ",
+    "on-click": "sleep 0.1; playerctl play-pause",
+    "tooltip-format": "Play / Stop"
   }
 }
