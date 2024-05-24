@@ -1,14 +1,14 @@
-* {
+.module {
   border: none;
   border-radius: 10px;
-  margin: 3px 6px 0px 6px;
-  padding: 0px 10px;
+  margin: 0px 4px;
+  padding: 0px 12px;
   font-family: "Firа Code Nerd Font";
   font-size: 15px;
   min-height: 28px;
 }
 
-*:hover {
+.module:hover {
   transition: opacity 0.2s ease-in-out;
   opacity: 0.85;
 }
@@ -94,13 +94,10 @@ window#waybar.hidden {
   background: #161320;
 }
 
-#custom-launcher {
-  color: #89dceb;
-  background: #161320;
-}
-
+#custom-launcher,
 #custom-windows,
 #custom-notifications {
+  padding-right: 16px;
   color: #89dceb;
   background: #161320;
 }

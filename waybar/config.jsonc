@@ -1,5 +1,8 @@
 {
   "layer": "top",
+  "margin": "10 10 0 10",
+  "start_hidden": true,
+  // "reload_style_on_change": true,
   "modules-left": ["custom/launcher", "custom/windows", "custom/notifications"],
   "modules-center": ["clock"],
   "modules-right": [
