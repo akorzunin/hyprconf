@@ -1,8 +1,8 @@
 * {
   border: none;
-  border-radius: 10;
-  margin: 3 6 0 6px;
-  padding: 0 10px;
+  border-radius: 10px;
+  margin: 3px 6px 0px 6px;
+  padding: 0px 10px;
   font-family: "Firа Code Nerd Font";
   font-size: 15px;
   min-height: 28px;
@@ -100,9 +100,7 @@ window#waybar.hidden {
 }
 
 #custom-windows,
-#custom-notifications,
-#custom-resume-pause,
-#custom-play-next {
+#custom-notifications {
   color: #89dceb;
   background: #161320;
 }
@@ -111,4 +109,9 @@ window#waybar.hidden {
 #custom-resume-pause {
   color: #161320;
   background: #f2cdcd;
+}
+
+#custom-keyboard-layout {
+  color: #161320;
+  background: #e2f2cd;
 }

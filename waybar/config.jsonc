@@ -8,7 +8,8 @@
     "disk",
     "pulseaudio",
     "custom/resume-pause",
-    "custom/play-next"
+    "custom/play-next",
+    "custom/keyboard-layout"
   ],
 
   "pulseaudio": {
@@ -97,12 +98,20 @@
   "custom/play-next": {
     "format": " 󰒬 ",
     "on-click": "sleep 0.1; playerctl next",
+    "interval": 10,
+    "exec": "playerctl metadata --all-players --format '{{ status }}: {{ artist }} - {{ title }}'",
     "tooltip": true,
-    "tooltip-format": "Play next"
+    "tooltip-format": "Play next [{}]"
   },
   "custom/resume-pause": {
     "format": " 󰐎 ",
     "on-click": "sleep 0.1; playerctl play-pause",
     "tooltip-format": "Play / Stop"
+  },
+  "custom/keyboard-layout": {
+    "interval": 2,
+    "format": "󰌌  {}",
+    "exec": "sh $HOME/.config/hyprland_scripts/get_layout.sh",
+    "tooltip-format": "Keybaord layout"
   }
 }
