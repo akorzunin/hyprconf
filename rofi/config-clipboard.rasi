@@ -1,7 +1,7 @@
 /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
 /* Clipboard Config (long) - Clipboard */
 
-@import "~/.config/rofi/config-long.rasi" 
+@import "~/.config/rofi/config-long.rasi"
 
 /* ---- Entry ---- */
 entry {

@@ -1,9 +1,9 @@
 /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
 /* Rofi Beats Config (compact) */
 
-@import "~/.config/rofi/config-compact.rasi" 
+@import "~/.config/rofi/config-compact.rasi"
 
-/* ---- Entry ---- */ 
+/* ---- Entry ---- */
 entry {
   width: 20%;
   placeholder: "📻 Choose Music Source";

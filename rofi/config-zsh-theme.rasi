@@ -1,9 +1,9 @@
 /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
 /* Main Config (compact) */
 
-@import "~/.config/rofi/config.rasi" 
+@import "~/.config/rofi/config.rasi"
 
-/* ---- Configuration ---- */ 
+/* ---- Configuration ---- */
 configuration {
   modi: "drun";
 }
