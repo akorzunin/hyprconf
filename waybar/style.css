@@ -1,3 +1,6 @@
+@define-color hypr-main-bg-color #161320;
+@define-color hypr-main-color #89dceb;
+
 .module {
   border: none;
   border-radius: 10px;
@@ -98,8 +101,8 @@ window#waybar.hidden {
 #custom-windows,
 #custom-notifications {
   padding-right: 16px;
-  color: #89dceb;
-  background: #161320;
+  color: @hypr-main-color;
+  background: @hypr-main-bg-color;
 }
 
 #custom-play-next,
@@ -111,4 +114,16 @@ window#waybar.hidden {
 #custom-keyboard-layout {
   color: #161320;
   background: #e2f2cd;
+}
+
+#workspaces button {
+  padding: 0 0.5em;
+  color: @hypr-main-color;
+  background: @hypr-main-bg-color;
+  border-radius: 0px;
+}
+
+#workspaces {
+  background: @hypr-main-bg-color;
+  border-radius: 10px;
 }

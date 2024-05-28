@@ -3,7 +3,7 @@
   "margin": "10 10 0 10",
   "start_hidden": true,
   // "reload_style_on_change": true,
-  "modules-left": ["custom/launcher", "custom/windows", "custom/notifications"],
+  "modules-left": ["custom/launcher", "custom/windows", "custom/notifications", "hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
     "cpu",
@@ -14,7 +14,23 @@
     "custom/play-next",
     "custom/keyboard-layout"
   ],
-
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "magic": "",
+      "active": "",
+      "default": ""
+    },
+    "show-special": true
+  },
   "pulseaudio": {
     "tooltip": false,
     "scroll-step": 5,
