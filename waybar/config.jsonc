@@ -6,6 +6,7 @@
   "modules-left": ["custom/launcher", "custom/windows", "custom/notifications", "hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
+    "tray",
     "cpu",
     "memory",
     "disk",
@@ -132,5 +133,10 @@
     "format": "󰌌  {}",
     "exec": "sh $HOME/.config/hyprland_scripts/get_layoutv2.sh",
     "tooltip-format": "Keybaord layout"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "show-passive-items": true
   }
 }

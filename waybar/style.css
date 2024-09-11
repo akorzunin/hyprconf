@@ -93,8 +93,7 @@ window#waybar.hidden {
 }
 
 #tray {
-  color: #b5e8e0;
-  background: #161320;
+  background: @hypr-main-color;
 }
 
 #custom-launcher,
