@@ -1,0 +1,21 @@
+# monitor= DP-5, 2560x1440@144, 0x0, 1.25
+monitor= DP-4, 2560x1440@144, 0x0, 1.25
+# 2560 / 1.25 = 2048
+monitor= HDMI-A-5, 1920x1080@60, 2048x-800, 1
+
+# set default monitor for xwayland apps
+# to check monitor run
+# xrandr --listactivemonitors
+# exec-once = xrandr --output DP-4 --primary
+
+# pin some workspaces to monitors
+# DVI-D-1: left (1)
+# DP-1: right (2)
+$left-mon = DP-4
+$right-mon = HDMI-A-5
+
+workspace = 1, monitor:$left-mon
+workspace = 2, monitor:$right-mon
+workspace = 3, monitor:$right-mon
+workspace = 4, monitor:$left-mon
+
