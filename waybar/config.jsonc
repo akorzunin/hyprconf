@@ -1,9 +1,10 @@
 {
   "layer": "top",
   "margin": "10 10 0 10",
-  "start_hidden": true,
+  // "start_hidden": true,
+  "start_hidden": false,
   // "reload_style_on_change": true,
-  "modules-left": ["custom/launcher", "custom/windows", "custom/notifications", "hyprland/workspaces"],
+  "modules-left": ["custom/launcher", "custom/windows", "hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
@@ -18,14 +19,11 @@
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
       "magic": "",
       "active": "",
       "default": ""
@@ -67,7 +65,9 @@
   },
   "clock": {
     "format": "{:%a %d %b %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "killall gnome-calendar; gnome-calendar",
+    "on-click-right": "killall gnome-calendar"
   },
   "cpu": {
     "interval": 2,
@@ -99,7 +99,7 @@
     "exec-on-event": true
   },
   "custom/launcher": {
-    "format": "  ",
+    "format": "  ",
     "on-click": "rofi -show drun",
     "on-click-right": "killall rofi",
     "tooltip-format": "Open new window"
