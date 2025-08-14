@@ -4,11 +4,10 @@
 .module {
   border: none;
   border-radius: 10px;
-  margin: 0px 4px;
+  margin: 0px 4px 10px 4px;
   padding: 0px 12px;
   font-family: "Firа Code Nerd Font";
   font-size: 15px;
-  min-height: 28px;
 }
 
 .module:hover {
