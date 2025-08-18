@@ -3,6 +3,7 @@ function y() {
 }
 
 # theme utils
+y xdg-desktop-portal-gtk
 y adw-gtk-theme
 y bibata-cursor-theme-bin
 y fastfetch
