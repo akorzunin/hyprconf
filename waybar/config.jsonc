@@ -131,7 +131,7 @@
   "custom/keyboard-layout": {
     "interval": 2,
     "format": "󰌌  {}",
-    "exec": "sh $HOME/.config/hyprland_scripts/get_layoutv2.sh",
+    "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap' | cut -c1-2 | tr '[:upper:]' '[:lower:]'",
     "tooltip-format": "Keybaord layout"
   },
   "tray": {
