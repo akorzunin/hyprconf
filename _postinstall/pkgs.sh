@@ -29,6 +29,11 @@ y rofi-wayland
 y waybar
 y waypaper
 y wl-clipboard
+y alsa-utils
+y wlr-randr
+y wdisplays
+y gnome-disk-utility
+y dosfstools
 
 # cli apps
 y fzf
