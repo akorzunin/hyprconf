@@ -31,10 +31,9 @@
     "show-special": true
   },
   "pulseaudio": {
-    "tooltip": false,
     "scroll-step": 5,
-    "format": "{icon} {volume}%",
-    "format-muted": "{icon} {volume}%",
+    "format": "{icon}  {volume}%",
+    "format-muted": " ",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
       "default": [" ", " ", " "]
