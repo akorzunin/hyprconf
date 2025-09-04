@@ -32,8 +32,6 @@ y wl-clipboard
 y alsa-utils
 y wlr-randr
 y wdisplays
-y gnome-disk-utility
-y dosfstools
 
 # cli apps
 y fzf
@@ -68,6 +66,7 @@ y gnome-calendar
 y nautilus
 y sushi
 y rustdesk-bin
+y qbittorrent
 
 # enable multilib first
 y steam
@@ -86,7 +85,5 @@ y docker
 y docker-compose
 y github-cli
 y uv
+y pre-commit
 
-# hyprpolkitagent 0.1.3-1
-# qbittorrent 5.1.2-1
-# xcursor-themes 1.0.7-2
