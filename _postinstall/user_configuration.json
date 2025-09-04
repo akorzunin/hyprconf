@@ -1,0 +1,84 @@
+{
+    "app_config": {
+        "audio_config": {
+            "audio": "pipewire"
+        }
+    },
+    "archinstall-language": "English",
+    "auth_config": null,
+    "bootloader": "Grub",
+    "custom_commands": [],
+    "hostname": "archlinux",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_GB.UTF-8"
+    },
+    "mirror_config": {
+        "custom_repositories": [],
+        "custom_servers": [],
+        "mirror_regions": {
+            "Russia": [
+                "http://mirror.yandex.ru/archlinux/$repo/os/$arch",
+                "https://mirror.yandex.ru/archlinux/$repo/os/$arch",
+                "http://ru.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "https://ru.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "http://mirror.truenetwork.ru/archlinux/$repo/os/$arch",
+                "https://mirror.truenetwork.ru/archlinux/$repo/os/$arch",
+                "http://mirrors.powernet.com.ru/archlinux/$repo/os/$arch",
+                "http://repository.su/archlinux/$repo/os/$arch",
+                "https://repository.su/archlinux/$repo/os/$arch",
+                "http://mirror.nw-sys.ru/archlinux/$repo/os/$arch",
+                "https://mirror.nw-sys.ru/archlinux/$repo/os/$arch",
+                "http://mirror.kamtv.ru/archlinux/$repo/os/$arch",
+                "https://mirror.kamtv.ru/archlinux/$repo/os/$arch",
+                "https://mirror2.sl-chat.ru/archlinux/$repo/os/$arch",
+                "https://mirror3.sl-chat.ru/archlinux/$repo/os/$arch",
+                "http://mirror.kpfu.ru/archlinux/$repo/os/$arch",
+                "https://mirror.kpfu.ru/archlinux/$repo/os/$arch",
+                "http://archlinux.gay/archlinux/$repo/os/$arch",
+                "https://archlinux.gay/archlinux/$repo/os/$arch",
+                "http://web.sketserv.ru/archlinux/$repo/os/$arch",
+                "https://web.sketserv.ru/archlinux/$repo/os/$arch",
+                "http://vladivostokst.ru/archlinux/$repo/os/$arch",
+                "https://vladivostokst.ru/archlinux/$repo/os/$arch"
+            ]
+        },
+        "optional_repositories": []
+    },
+    "network_config": {
+        "type": "nm"
+    },
+    "ntp": true,
+    "packages": [
+        "htop",
+        "nushell",
+        "zsh",
+        "neovim",
+        "btop"
+    ],
+    "parallel_downloads": 0,
+    "profile_config": {
+        "gfx_driver": "Nvidia (open kernel module for newer GPUs, Turing+)",
+        "greeter": "ly",
+        "profile": {
+            "custom_settings": {
+                "Hyprland": {
+                    "seat_access": "polkit"
+                }
+            },
+            "details": [
+                "Hyprland"
+            ],
+            "main": "Desktop"
+        }
+    },
+    "script": null,
+    "services": [],
+    "swap": true,
+    "timezone": "Europe/Moscow",
+    "version": "3.0.9"
+}
