@@ -7,3 +7,9 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin $USER --noclear %I $TERM
 EOF
 
+sudo tee ~/.zprofile >/dev/null <<"EOF"
+if [[ "$(tty)" == "/dev/tty1" ]]; then
+    exec Hyprland
+fi
+EOF
+
