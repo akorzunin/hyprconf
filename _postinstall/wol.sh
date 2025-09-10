@@ -1,13 +1,5 @@
 #!/usr/bin/env nu
-# yay -S ethtool
-
-# d - disabled
-# g - wol on magic packet
-
-ip a
-let interface = (input 'Enter interface name: ')
-sudo ethtool $interface | grep "Wake-on"
-(input "Set wol to g? [Y]es/^C ")
-ethtool -s $interface wol g
-sudo ethtool $interface | grep "Wake-on"
+let interface = (nmcli c show | from ssv | get NAME | to text | fzf)
+nmcli c show $interface | grep 802-3-ethernet.wake-on-lan
+nmcli c modify $interface 802-3-ethernet.wake-on-lan magic
 
