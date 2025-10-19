@@ -17,3 +17,11 @@ workspace = 2, monitor:$right-mon
 workspace = 3, monitor:$right-mon
 workspace = 4, monitor:$left-mon
 
+# for scaling
+env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+env = GDK_SCALE, 1.25
+
+# for multi gpu (output of ls -l /dev/dri/by-path)
+# put performant GPU first (id is in first digits of lsgpu output)
+env = AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0
+
