@@ -4,13 +4,17 @@
   // "start_hidden": true,
   "start_hidden": false,
   // "reload_style_on_change": true,
-  "modules-left": ["custom/launcher", "custom/windows", "hyprland/workspaces"],
+  "modules-left": [
+    "custom/launcher",
+    "custom/windows",
+    "hyprland/workspaces"
+  ],
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
-    "cpu",
+    // "cpu",
     "memory",
-    "disk",
+    // "disk",
     "pulseaudio",
     "custom/resume-pause",
     "custom/play-next",
@@ -82,20 +86,6 @@
     "interval": 30,
     "format": "{percentage_used}% ",
     "max-length": 10
-  },
-  "custom/media": {
-    "interval": 30,
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 20,
-    "format-icons": {
-      "spotify": " ",
-      "default": " "
-    },
-    "escape": true,
-    "exec": "/bin/python3.12 $HOME/.config/hyprland_scripts/mediaplayer.py 2> /dev/null",
-    "on-click": "playerctl play-pause",
-    "exec-on-event": true
   },
   "custom/launcher": {
     "format": "  ",
