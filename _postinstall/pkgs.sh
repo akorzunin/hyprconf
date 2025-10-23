@@ -86,4 +86,10 @@ y docker-compose
 y github-cli
 y uv
 y pre-commit
+y go-task
+y caddy
+# sudo setcap cap_net_bind_service=+ep /usr/bin/caddy
+# to run caddy on 443 port w/o sudo
+y pnpm
+
 
