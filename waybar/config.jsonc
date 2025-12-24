@@ -18,7 +18,8 @@
     "pulseaudio",
     "custom/resume-pause",
     "custom/play-next",
-    "custom/keyboard-layout"
+    "custom/keyboard-layout",
+    "battery"
   ],
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
@@ -57,14 +58,19 @@
   },
   "battery": {
     "states": {
-      "good": 95,
       "warning": 30,
       "critical": 20
     },
-    "format": "{icon}  {capacity}%",
+    "format": "{capacity}% {icon}",
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}"
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25,
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!'"
+    }
   },
   "clock": {
     "format": "{:%a %d %b %H:%M}",
