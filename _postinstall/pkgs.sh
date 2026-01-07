@@ -83,6 +83,8 @@ y zen-browser-bin
 # soft dev utils
 y docker
 y docker-compose
+y docker-buildx
+
 y github-cli
 y uv
 y pre-commit
