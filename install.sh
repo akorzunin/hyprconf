@@ -1,6 +1,7 @@
 #!/bin/sh
 CONFIG_PATH=$(pwd)
 touch ./hypr/monitors.conf
+touch ./hypr/local.conf
 
 cd $HOME/.config/
 
