@@ -9,7 +9,6 @@ EOF
 
 sudo tee ~/.zprofile >/dev/null <<"EOF"
 if [[ "$(tty)" == "/dev/tty1" ]]; then
-    exec Hyprland
+    exec start-hyprland
 fi
 EOF
-
