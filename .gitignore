@@ -1,1 +1,3 @@
 hypr/monitors.conf
+hypr/local.conf
+*.local.conf
