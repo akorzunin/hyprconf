@@ -40,6 +40,7 @@
     "format": "{icon}  {volume}%",
     "format-muted": " ",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "~/.config/waybar/scripts/pulsemixer.sh",
     "format-icons": {
       "default": [" ", " ", " "]
     }
