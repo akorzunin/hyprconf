@@ -76,8 +76,7 @@
   "clock": {
     "format": "{:%a %d %b %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click": "killall gnome-calendar; gnome-calendar",
-    "on-click-right": "killall gnome-calendar"
+    "on-click": "~/.config/waybar/scripts/calendar.sh",
   },
   "cpu": {
     "interval": 2,
