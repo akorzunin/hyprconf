@@ -1,127 +1,50 @@
 @define-color hypr-main-bg-color #161320;
 @define-color hypr-main-color #89dceb;
 
-.module {
-  border: none;
-  border-radius: 10px;
-  margin: 0px 4px 10px 4px;
-  padding: 0px 12px;
-  font-family: "Firа Code Nerd Font";
-  font-size: 15px;
-}
-
-.module:hover {
-  transition: opacity 0.2s ease-in-out;
-  opacity: 0.85;
-}
-
 window#waybar {
   background: transparent;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
-#window {
-  color: transparent;
-  background: transparent;
-}
-
-#network {
-  color: #161320;
-  background: #bd93f9;
-}
-
-#pulseaudio {
-  color: #1a1826;
-  background: #fae3b0;
-}
-
-#battery {
-  transition: none;
-  color: #161320;
-  background: #b5e8e0;
-}
-
-#battery.charging,
-#battery.plugged {
-  color: #161320;
-  background-color: #b5e8e0;
-}
-
-#battery.critical:not(.charging) {
-  background-color: #b5e8e0;
-  color: #161320;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes blink {
-  to {
-    background-color: #bf616a;
-    color: #b5e8e0;
-  }
-}
-
-#backlight {
-  color: #161320;
-  background: #f8bd96;
-}
-#clock {
-  color: #161320;
-  background: #abe9b3;
-}
-
-#memory {
-  color: #161320;
-  background: #ddb6f2;
-}
-
-#disk {
-  color: #161320;
-  background: #b6b9f2;
-}
-
-#cpu {
-  color: #161320;
-  background: #96cdfb;
-}
-
-#tray {
-  background: @hypr-main-color;
-}
-
-#custom-launcher,
-#custom-windows,
-#custom-notifications {
-  padding-right: 16px;
+.module {
+  border-radius: 10px;
+  padding: 1.5px 12px;
+  font-family: "Firа Code Nerd Font";
+  font-size: 15px;
   color: @hypr-main-color;
   background: @hypr-main-bg-color;
 }
 
-#custom-play-next,
-#custom-resume-pause {
-  color: #161320;
-  background: #f2cdcd;
+.module:hover {
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+  color: @hypr-main-bg-color;
+  background: @hypr-main-color;
 }
 
-#custom-keyboard-layout {
-  color: #161320;
-  background: #e2f2cd;
+#workspaces:hover {
+  transition: none;
+  color: @hypr-main-color;
+  background: @hypr-main-bg-color;
 }
 
 #workspaces button {
   padding: 0 0.5em;
+  border-radius: 0px;
   color: @hypr-main-color;
   background: @hypr-main-bg-color;
-  border-radius: 0px;
 }
 
-#workspaces {
-  background: @hypr-main-bg-color;
+#workspaces button:hover {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.65;
+}
+
+tooltip {
   border-radius: 10px;
+  font-family: "Firа Code Nerd Font";
+  font-size: 18px;
+  background: @hypr-main-bg-color;
+}
+
+tooltip label {
+  color: @hypr-main-color;
 }

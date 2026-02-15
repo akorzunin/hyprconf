@@ -1,7 +1,7 @@
 {
   "layer": "top",
-  "margin": "10 10 0 10",
-  // "start_hidden": true,
+  "margin": "10px 10px",
+  "spacing": 8,
   "start_hidden": false,
   // "reload_style_on_change": true,
   "modules-left": [
@@ -12,9 +12,7 @@
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
-    // "cpu",
     "memory",
-    // "disk",
     "pulseaudio",
     "custom/resume-pause",
     "custom/play-next",
@@ -45,18 +43,6 @@
       "default": [" ", " ", " "]
     }
   },
-  "network": {
-    "tooltip": false,
-    "format-wifi": "  {essid}",
-    "format-ethernet": ""
-  },
-  "backlight": {
-    "tooltip": false,
-    "format": " {}%",
-    "interval": 1,
-    "on-scroll-up": "light -A 5",
-    "on-scroll-down": "light -U 5"
-  },
   "battery": {
     "states": {
       "warning": 30,
@@ -78,37 +64,20 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click": "~/.config/waybar/scripts/calendar.sh",
   },
-  "cpu": {
-    "interval": 2,
-    "format": "{usage:02}% ",
-    "max-length": 10
-  },
   "memory": {
     "interval": 30,
     "format": "{}% ",
     "max-length": 10
   },
-  "disk": {
-    "interval": 30,
-    "format": "{percentage_used}% ",
-    "max-length": 10
-  },
   "custom/launcher": {
     "format": "  ",
     "on-click": "rofi -show drun",
-    "on-click-right": "killall rofi",
     "tooltip-format": "Open new window"
   },
   "custom/windows": {
     "format": "  ",
     "on-click": "rofi -show window",
-    "on-click-right": "killall rofi",
     "tooltip-format": "Go to opened window"
-  },
-  "custom/notifications": {
-    "format": " 󰍡 ",
-    "on-click": "sleep 0.1; swaync-client -t -sw",
-    "tooltip-format": "Show notifications bar"
   },
   "custom/play-next": {
     "format": " 󰒬 ",
