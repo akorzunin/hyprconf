@@ -20,7 +20,7 @@ window#waybar {
   background: @hypr-main-color;
 }
 
-#workspaces:hover {
+#workspaces:hover, #tray:hover {
   transition: none;
   color: @hypr-main-color;
   background: @hypr-main-bg-color;
