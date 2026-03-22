@@ -1,0 +1,87 @@
+window-rule {
+    match app-id="xdg-desktop-portal-gtk"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.gnome.Nautilus"
+    open-floating true
+    default-column-width {}
+}
+
+window-rule {
+    match app-id="mpv"
+    open-floating true
+}
+
+window-rule {
+    match app-id="zen"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.gnome.Calendar"
+    open-floating true
+}
+
+window-rule {
+    match app-id="steam"
+    open-floating true
+}
+
+window-rule {
+    match app-id="Rustdesk"
+    open-floating true
+}
+
+window-rule {
+    match app-id="timeshift-gtk"
+    open-floating true
+}
+
+window-rule {
+    match app-id="kitty-fzf-picker"
+    open-floating true
+    default-column-width {}
+}
+
+window-rule {
+    match app-id="kitty-pulsemixer"
+    open-floating true
+    default-column-width {}
+}
+
+window-rule {
+    match app-id="kitty-btop"
+    open-floating true
+    default-column-width {}
+}
+
+window-rule {
+    match app-id="discord"
+    open-floating true
+    open-on-workspace "2"
+}
+
+window-rule {
+    match app-id="org.telegram.desktop"
+    open-floating true
+    open-on-workspace "2"
+}
+
+window-rule {
+    match app-id="spotify"
+    open-floating true
+    open-on-workspace "2"
+}
+
+window-rule {
+    match app-id="(?i)obsidian"
+    open-floating true
+    open-on-workspace "3"
+}
+
+window-rule {
+    match app-id="zen-browser"
+    open-on-workspace "1"
+}

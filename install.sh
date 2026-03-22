@@ -11,3 +11,4 @@ ln -sf $CONFIG_PATH/kitty
 ln -sf $CONFIG_PATH/waybar
 ln -sf $CONFIG_PATH/hyprland_scripts
 ln -sf $CONFIG_PATH/dunst
+ln -sf $CONFIG_PATH/niri

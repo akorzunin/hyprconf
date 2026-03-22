@@ -1,0 +1,143 @@
+include "monitors.local.kdl"
+
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            options "caps:none, grp:win_space_toggle"
+        }
+        track-layout "window"
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+    workspace-auto-back-and-forth
+    focus-follows-mouse max-scroll-amount="10%"
+    warp-mouse-to-focus mode="center-xy"
+}
+
+layout {
+    gaps 1
+    default-column-width { proportion 0.5; }
+    focus-ring {
+        width 0
+    }
+    border {
+        off
+    }
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 38
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+workspace "1" {}
+workspace "2" {}
+workspace "3" {}
+workspace "4" {}
+workspace "5" {}
+workspace "6" {}
+workspace "7" {}
+workspace "8" {}
+workspace "9" {}
+
+workspace "magick" {}
+
+binds {
+    Mod+R { spawn "fuzzel"; }
+    Mod+Q { spawn "kitty"; }
+    Mod+C { close-window; }
+    Mod+D { toggle-overview; }
+
+    Mod+E repeat=false { spawn-sh "bemoji -n"; }
+    Mod+Shift+Q repeat=false { spawn-sh "kitty -e zellij a main"; }
+
+    Mod+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
+    Mod+Shift+Print repeat=false { spawn "grim -g \"$(slurp -d)\" - | wl-copy && notify-send 'Screenshot saved'"; }
+
+    // Mod+Space repeat=false { spawn "hyprctl switchxkblayout all next && pkill -RTMIN+10 waybar"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+    Mod+S { focus-workspace "magick"; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-workspace-up; }
+    Mod+Down  { focus-workspace-down; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-workspace-down; }
+    Mod+K     { focus-workspace-up; }
+    Mod+L     { focus-column-right; }
+    Mod+WheelScrollDown cooldown-ms=150 { focus-column-right; }
+    Mod+WheelScrollUp cooldown-ms=150  { focus-column-left; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+Up    { move-column-to-workspace-up; }
+    Mod+Ctrl+Down  { move-column-to-workspace-down; }
+
+    Mod+Tab repeat=false { focus-workspace-previous; }
+    Mod+Shift+Tab repeat=false { spawn-sh "rofi -show window -modi drun,filebrowser,run,window -steal-focus -matching fuzzy"; }
+
+    Mod+Minus { set-column-width "-5%"; }
+    Mod+Shift+Left { set-column-width "-5%"; }
+    Mod+Equal { set-column-width "+5%"; }
+    Mod+Shift+Right { set-column-width "+5%"; }
+
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { toggle-window-floating; }
+
+    Mod+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
+    Mod+Shift+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; OPENCODE_DISABLE_MODELS_FETCH=1 po -e opencode'"; }
+
+    Mod+B repeat=false { spawn-sh "playerctl play-pause"; }
+    Mod+N repeat=false { spawn-sh "playerctl next"; }
+
+    Mod+Shift+B repeat=false { spawn "killall -SIGUSR1 waybar || waybar"; }
+    Mod+Ctrl+B repeat=false { spawn "pkill waybar && waybar"; }
+
+    Mod+V repeat=false { toggle-window-floating; }
+    Mod+Shift+V repeat=false { switch-focus-between-floating-and-tiling; }
+
+    Alt+Tab repeat=false { focus-window-up; }
+
+    XF86AudioRaiseVolume { spawn-sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; }
+    XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
+    XF86AudioMute { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86MonBrightnessUp { spawn-sh "brightnessctl -e4 -n2 set 5%+"; }
+    XF86MonBrightnessDown { spawn-sh "brightnessctl -e4 -n2 set 5%-"; }
+    XF86AudioNext { spawn-sh "playerctl next"; }
+    XF86AudioPause { spawn-sh "playerctl play-pause"; }
+    XF86AudioPlay { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev { spawn-sh "playerctl previous"; }
+}

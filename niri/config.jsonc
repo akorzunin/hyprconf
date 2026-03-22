@@ -1,0 +1,109 @@
+{
+  "layer": "top",
+  "margin": "10px 10px",
+  "spacing": 8,
+  "start_hidden": false,
+  // "reload_style_on_change": true,
+  "modules-left": [
+    "custom/launcher",
+    "custom/windows",
+    "niri/workspaces"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "memory",
+    "pulseaudio",
+    "custom/resume-pause",
+    "custom/play-next",
+    // "custom/keyboard-layout",
+    "battery"
+  ],
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "magic": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon}  {volume}%",
+    "format-muted": " ",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "~/.config/waybar/scripts/pulsemixer.sh",
+    "format-icons": {
+      "default": [" ", " ", " "]
+    }
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25,
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-98": "notify-send -u normal 'Battery Full!'"
+    }
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "~/.config/waybar/scripts/calendar.sh",
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "max-length": 10,
+    "on-click": "~/.config/waybar/scripts/btop.sh",
+    "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G"
+  },
+  "custom/launcher": {
+    "format": "  ",
+    "on-click": "rofi -show drun",
+    "tooltip-format": "Open new window"
+  },
+  "custom/windows": {
+    "format": "  ",
+    "on-click": "rofi -show window",
+    "tooltip-format": "Go to opened window"
+  },
+  "custom/play-next": {
+    "format": " 󰒬 ",
+    "on-click": "sleep 0.1; playerctl next",
+    "interval": 10,
+    "exec": "playerctl metadata --all-players --format '{{ status }}: {{ artist }} - {{ title }}'",
+    "tooltip": true,
+    "tooltip-format": "Play next [{}]"
+  },
+  "custom/resume-pause": {
+    "format": " 󰐎 ",
+    "on-click": "sleep 0.1; playerctl play-pause",
+    "tooltip-format": "Play / Stop"
+  },
+  "custom/keyboard-layout": {
+    "interval": 2,
+    "format": "󰌌  {}",
+    "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap' | cut -c1-2 | tr '[:upper:]' '[:lower:]'",
+    "tooltip-format": "Keybaord layout: {}",
+    "signal": 10,
+    "on-click": "hyprctl switchxkblayout all next"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "show-passive-items": true
+  }
+}
