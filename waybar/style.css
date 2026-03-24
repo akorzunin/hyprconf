@@ -15,12 +15,15 @@ window#waybar {
 }
 
 .module:hover {
-  transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
+  transition:
+    color 0.2s ease-in-out,
+    background 0.2s ease-in-out;
   color: @hypr-main-bg-color;
   background: @hypr-main-color;
 }
 
-#workspaces:hover, #tray:hover {
+#workspaces:hover,
+#tray:hover {
   transition: none;
   color: @hypr-main-color;
   background: @hypr-main-bg-color;

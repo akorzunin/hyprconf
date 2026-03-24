@@ -12,3 +12,7 @@ ln -sf $CONFIG_PATH/waybar
 ln -sf $CONFIG_PATH/hyprland_scripts
 ln -sf $CONFIG_PATH/dunst
 ln -sf $CONFIG_PATH/niri
+touch ./niri/monitors.local.kdl
+touch ./niri/startup.local.kdl
+
+ln -sf $CONFIG_PATH/fuzzel

@@ -1,0 +1,34 @@
+spawn-sh-at-startup "waybar -c ~/.config/niri/config.jsonc"
+spawn-at-startup "~/.local/bin/TgWsProxy_linux_amd64"
+
+spawn-at-startup "google-chrome-stable"
+window-rule {
+    match app-id="google-chrome"
+    match app-id="firefox"
+    match app-id="zen-browser"
+    open-on-workspace "main"
+}
+
+spawn-at-startup "spotify-launcher"
+spawn-at-startup "Telegram"
+window-rule {
+    match app-id="org.telegram.desktop"
+    match app-id="spotify"
+    match app-id="discord"
+    open-on-workspace "chat"
+}
+
+spawn-at-startup "obsidian"
+spawn-sh-at-startup "code ~/Documents/mion.front"
+spawn-sh-at-startup "OPENCODE_DISABLE_MODELS_FETCH=1 opencode ~/Documents/mion.front"
+window-rule {
+    match app-id="obsidian"
+    match app-id="code"
+    open-on-workspace "code"
+}
+
+spawn-at-startup "kitty --class zellij -e zellij a main"
+window-rule {
+    match app-id="zellij"
+    open-on-workspace "magic"
+}

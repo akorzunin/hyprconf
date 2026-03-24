@@ -15,7 +15,6 @@ input {
     }
     workspace-auto-back-and-forth
     focus-follows-mouse max-scroll-amount="10%"
-    warp-mouse-to-focus mode="center-xy"
 }
 
 layout {
@@ -34,60 +33,55 @@ cursor {
     xcursor-size 38
 
     hide-when-typing
-    hide-after-inactive-ms 1000
+    hide-after-inactive-ms 5000
 }
 
-workspace "1" {}
-workspace "2" {}
-workspace "3" {}
-workspace "4" {}
-workspace "5" {}
-workspace "6" {}
-workspace "7" {}
-workspace "8" {}
-workspace "9" {}
+environment {
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    XCURSOR_THEME "Bibata-Modern-Classic"
+    XCURSOR_SIZE "38"
+    DISPLAY null
+}
+spawn-sh-at-startup "echo 'Xcursor.theme:Bibata-Modern-Classic' | xrdb -merge"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'"
 
-workspace "magick" {}
+workspace "main" {}
+workspace "chat" {}
+workspace "code" {}
+workspace "etc" {}
+workspace "magic" {}
 
 binds {
+    Mod+1 { focus-workspace "main"; }
+    Mod+2 { focus-workspace "chat"; }
+    Mod+3 { focus-workspace "code"; }
+    Mod+4 { focus-workspace "etc"; }
+    Mod+S { focus-workspace "magic"; }
+
+    Mod+Shift+1 { move-column-to-workspace "main"; }
+    Mod+Shift+2 { move-column-to-workspace "chat"; }
+    Mod+Shift+3 { move-column-to-workspace "code"; }
+
     Mod+R { spawn "fuzzel"; }
     Mod+Q { spawn "kitty"; }
     Mod+C { close-window; }
     Mod+D { toggle-overview; }
 
     Mod+E repeat=false { spawn-sh "bemoji -n"; }
-    Mod+Shift+Q repeat=false { spawn-sh "kitty -e zellij a main"; }
+    Mod+Shift+Q repeat=false { spawn-sh "kitty --class zellij -e zellij a main"; }
 
     Mod+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
-    Mod+Shift+Print repeat=false { spawn "grim -g \"$(slurp -d)\" - | wl-copy && notify-send 'Screenshot saved'"; }
+    Mod+Shift+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy && notify-send 'Screenshot saved'"; }
+    Mod+V { spawn-sh "cliphist list | wofi --dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" | cliphist decode | wl-copy --trim-newline"; }
 
-    // Mod+Space repeat=false { spawn "hyprctl switchxkblayout all next && pkill -RTMIN+10 waybar"; }
-
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+0 { focus-workspace 10; }
-    Mod+S { focus-workspace "magick"; }
-
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
-    Mod+Shift+8 { move-column-to-workspace 8; }
-    Mod+Shift+9 { move-column-to-workspace 9; }
-    Mod+Shift+0 { move-column-to-workspace 10; }
 
     Mod+Left  { focus-column-left; }
+    Mod+Z  { focus-column-left; }
     Mod+Right { focus-column-right; }
+    Mod+X { focus-column-right; }
     Mod+Up    { focus-workspace-up; }
     Mod+Down  { focus-workspace-down; }
     Mod+H     { focus-column-left; }
@@ -122,13 +116,8 @@ binds {
     Mod+B repeat=false { spawn-sh "playerctl play-pause"; }
     Mod+N repeat=false { spawn-sh "playerctl next"; }
 
-    Mod+Shift+B repeat=false { spawn "killall -SIGUSR1 waybar || waybar"; }
-    Mod+Ctrl+B repeat=false { spawn "pkill waybar && waybar"; }
-
-    Mod+V repeat=false { toggle-window-floating; }
-    Mod+Shift+V repeat=false { switch-focus-between-floating-and-tiling; }
-
-    Alt+Tab repeat=false { focus-window-up; }
+    Mod+Shift+B repeat=false { spawn-sh "killall -SIGUSR1 waybar || waybar -c ~/.config/niri/config.jsonc"; }
+    Mod+Ctrl+B repeat=false { spawn-sh "pkill waybar && waybar -c ~/.config/niri/config.jsonc"; }
 
     XF86AudioRaiseVolume { spawn-sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; }
     XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
@@ -141,3 +130,34 @@ binds {
     XF86AudioPlay { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev { spawn-sh "playerctl previous"; }
 }
+
+recent-windows {
+    debounce-ms 750
+    open-delay-ms 300
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Alt+grave       { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+    }
+    highlight {
+        active-color "#1e1e2edd"
+        corner-radius 10
+    }
+}
+hotkey-overlay {
+    skip-at-startup
+}
+
+window-rule {
+    open-maximized true
+}
+
+prefer-no-csd
+
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+
+include "startup.kdl"
+// include "startup.local.kdl"

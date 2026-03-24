@@ -7,7 +7,9 @@
   "modules-left": [
     "custom/launcher",
     "custom/windows",
-    "niri/workspaces"
+    "niri/workspaces",
+    "custom/niri-column-left",
+    "custom/niri-column-right"
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -19,14 +21,23 @@
     // "custom/keyboard-layout",
     "battery"
   ],
+  "custom/niri-column-left": {
+    "format": "",
+    "on-click": "niri msg action focus-column-left",
+    "tooltip-format": "Go to left column",
+  },
+  "custom/niri-column-right": {
+    "format": "",
+    "on-click": "niri msg action focus-column-right",
+    "tooltip-format": "Go to right column",
+  },
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
+      "main": "",
+      "chat": "",
+      "code": "",
+      "etc": "",
       "magic": "",
       "active": "",
       "default": ""
@@ -71,8 +82,8 @@
     "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G"
   },
   "custom/launcher": {
-    "format": "  ",
-    "on-click": "rofi -show drun",
+    "format": "  ",
+    "on-click": "fuzzel",
     "tooltip-format": "Open new window"
   },
   "custom/windows": {
