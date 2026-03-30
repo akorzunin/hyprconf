@@ -18,16 +18,19 @@ window-rule {
     open-on-workspace "chat"
 }
 
+spawn-sh-at-startup "google-chrome-stable --new-window http://localhost:5173/chat"
 spawn-at-startup "obsidian"
-spawn-sh-at-startup "code ~/Documents/mion.front"
-spawn-sh-at-startup "OPENCODE_DISABLE_MODELS_FETCH=1 opencode ~/Documents/mion.front"
+spawn-sh-at-startup "sleep 7; code ~/Documents/mion.front"
+spawn-sh-at-startup "sleep 10; OPENCODE_DISABLE_MODELS_FETCH=1 kitty --class opencode -e opencode ~/Documents/mion.front"
 window-rule {
     match app-id="obsidian"
     match app-id="code"
+    match app-id="opencode"
+    match app-id="google-chrome" title="localhost - Google Chrome"
     open-on-workspace "code"
 }
 
-spawn-at-startup "kitty --class zellij -e zellij a main"
+spawn-sh-at-startup "kitty --class zellij -e zellij a main"
 window-rule {
     match app-id="zellij"
     open-on-workspace "magic"
