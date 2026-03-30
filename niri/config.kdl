@@ -75,8 +75,13 @@ binds {
 
     Mod+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
     Mod+Shift+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy && notify-send 'Screenshot saved'"; }
-    Mod+V { spawn-sh "cliphist list | wofi --dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" | cliphist decode | wl-copy --trim-newline"; }
-
+    Mod+V { spawn-sh r"cliphist list \
+        | fuzzel -d --with-nth 2 -w 80% -l 20 \
+        --font 'Fira Code Nerd Font Mono:size=12'\
+        --placeholder 'Clipboard history' \
+        | cliphist decode \
+        | wl-copy --trim-newline
+    "; }
 
     Mod+Left  { focus-column-left; }
     Mod+Z  { focus-column-left; }
@@ -152,6 +157,11 @@ hotkey-overlay {
 
 window-rule {
     open-maximized true
+    // baba-is-float true
+}
+window-rule {
+    match app-id="kitty"
+    open-maximized false
 }
 
 prefer-no-csd
@@ -161,3 +171,4 @@ spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 
 include "startup.kdl"
 // include "startup.local.kdl"
+include "animations.kdl"
