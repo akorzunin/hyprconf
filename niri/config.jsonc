@@ -24,15 +24,21 @@
   "custom/niri-column-left": {
     "format": "",
     "on-click": "niri msg action focus-column-left",
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
     "tooltip-format": "Go to left column",
   },
   "custom/niri-column-right": {
     "format": "",
     "on-click": "niri msg action focus-column-right",
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
     "tooltip-format": "Go to right column",
   },
   "niri/workspaces": {
     "format": "{icon}",
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
     "format-icons": {
       "main": "",
       "chat": "",
