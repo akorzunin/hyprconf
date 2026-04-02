@@ -1,5 +1,7 @@
-@define-color hypr-main-bg-color #161320;
-@define-color hypr-main-color #89dceb;
+@define-color bg-color #161320;
+@define-color main-color #89dceb;
+/* sky-950 */
+@define-color border-color #052f4a;
 
 window#waybar {
   background: transparent;
@@ -10,30 +12,31 @@ window#waybar {
   padding: 1.5px 12px;
   font-family: "Firа Code Nerd Font";
   font-size: 15px;
-  color: @hypr-main-color;
-  background: @hypr-main-bg-color;
+  color: @main-color;
+  background: @bg-color;
+  border: 1px solid @border-color;
 }
 
 .module:hover {
   transition:
     color 0.2s ease-in-out,
     background 0.2s ease-in-out;
-  color: @hypr-main-bg-color;
-  background: @hypr-main-color;
+  color: @bg-color;
+  background: @main-color;
 }
 
 #workspaces:hover,
 #tray:hover {
   transition: none;
-  color: @hypr-main-color;
-  background: @hypr-main-bg-color;
+  color: @main-color;
+  background: @bg-color;
 }
 
 #workspaces button {
   padding: 0 0.5em;
   border-radius: 0px;
-  color: @hypr-main-color;
-  background: @hypr-main-bg-color;
+  color: @main-color;
+  background: @bg-color;
 }
 
 #workspaces button:hover {
@@ -45,9 +48,9 @@ tooltip {
   border-radius: 10px;
   font-family: "Firа Code Nerd Font";
   font-size: 18px;
-  background: @hypr-main-bg-color;
+  background: @bg-color;
 }
 
 tooltip label {
-  color: @hypr-main-color;
+  color: @main-color;
 }
