@@ -106,7 +106,7 @@ binds {
     Mod+Ctrl+Down  { move-column-to-workspace-down; }
 
     Mod+Tab repeat=false { focus-workspace-previous; }
-    Mod+Shift+Tab repeat=false { spawn-sh "rofi -show window -modi drun,filebrowser,run,window -steal-focus -matching fuzzy"; }
+    Mod+Shift+Tab repeat=false { spawn-sh "nu ~/.config/niri/scripts/pick_window.nu"; }
 
     Mod+Minus { set-column-width "-5%"; }
     Mod+Shift+Left { set-column-width "-5%"; }
