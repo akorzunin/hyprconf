@@ -94,7 +94,7 @@
   },
   "custom/windows": {
     "format": "  ",
-    "on-click": "rofi -show window",
+    "on-click": "nu ~/.config/niri/scripts/pick_window.nu",
     "tooltip-format": "Go to opened window"
   },
   "custom/play-next": {

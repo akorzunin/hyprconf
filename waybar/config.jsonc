@@ -75,12 +75,12 @@
   },
   "custom/launcher": {
     "format": "  ",
-    "on-click": "rofi -show drun",
+    "on-click": "fuzzel",
     "tooltip-format": "Open new window"
   },
   "custom/windows": {
     "format": "  ",
-    "on-click": "rofi -show window",
+    "on-click": "nu ~/.config/hyprland_scripts/pick_window.nu",
     "tooltip-format": "Go to opened window"
   },
   "custom/play-next": {

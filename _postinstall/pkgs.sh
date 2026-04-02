@@ -25,7 +25,7 @@ y hyprpaper
 y ntfs-3g
 y os-prober
 y playerctl
-y rofi-wayland
+y fuzzel
 y waybar
 y waypaper
 y wl-clipboard
@@ -93,5 +93,3 @@ y caddy
 # sudo setcap cap_net_bind_service=+ep /usr/bin/caddy
 # to run caddy on 443 port w/o sudo
 y pnpm
-
-
