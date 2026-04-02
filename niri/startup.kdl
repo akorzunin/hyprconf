@@ -1,3 +1,8 @@
+spawn-at-startup "hyprpaper"
+layer-rule {
+  match namespace="hyprpaper"
+  place-within-backdrop true
+}
 spawn-sh-at-startup "waybar -c ~/.config/niri/config.jsonc"
 spawn-at-startup "~/.local/bin/TgWsProxy_linux_amd64"
 
@@ -18,10 +23,11 @@ window-rule {
     open-on-workspace "chat"
 }
 
-spawn-sh-at-startup "google-chrome-stable --new-window http://localhost:5173/chat"
 spawn-at-startup "obsidian"
 spawn-sh-at-startup "sleep 7; code ~/Documents/mion.front"
-spawn-sh-at-startup "sleep 10; OPENCODE_DISABLE_MODELS_FETCH=1 kitty --class opencode -e opencode ~/Documents/mion.front"
+spawn-sh-at-startup "sleep 8; OPENCODE_DISABLE_MODELS_FETCH=1 kitty --class opencode -e opencode ~/Documents/mion.front"
+spawn-sh-at-startup "sleep 9; code ~/Documents/mion.back"
+spawn-sh-at-startup "sleep 10; code ~/Documents/hyprconf"
 window-rule {
     match app-id="obsidian"
     match app-id="code"
