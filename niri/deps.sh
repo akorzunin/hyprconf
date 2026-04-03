@@ -3,4 +3,4 @@ function y() {
 }
 
 y xwayland-satellite
-y fuzzel
+y xdg-desktop-portal-gnome
