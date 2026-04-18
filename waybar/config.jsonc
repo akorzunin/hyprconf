@@ -7,7 +7,9 @@
   "modules-left": [
     "custom/launcher",
     "custom/windows",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "custom/hyprland-column-left",
+    "custom/hyprland-column-right"
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -19,6 +21,20 @@
     "custom/keyboard-layout",
     "battery"
   ],
+  "custom/hyprland-column-left": {
+    "format": "",
+    "on-click": "hyprctl dispatch 'layoutmsg move -col'",
+    "on-scroll-up": "hyprctl dispatch 'layoutmsg move -col'",
+    "on-scroll-down": "hyprctl dispatch 'layoutmsg move +col'",
+    "tooltip-format": "Go to left column",
+  },
+  "custom/hyprland-column-right": {
+    "format": "",
+    "on-click": "hyprctl dispatch 'layoutmsg move +col'",
+    "on-scroll-up": "hyprctl dispatch 'layoutmsg move -col'",
+    "on-scroll-down": "hyprctl dispatch 'layoutmsg move +col'",
+    "tooltip-format": "Go to right column",
+  },
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
     "format-icons": {
