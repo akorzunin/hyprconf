@@ -105,6 +105,11 @@ binds {
     Mod+Ctrl+Up    { move-column-to-workspace-up; }
     Mod+Ctrl+Down  { move-column-to-workspace-down; }
 
+    Mod+Ctrl+J { move-window-down; }
+    Mod+Ctrl+K { move-window-up; }
+    Mod+Ctrl+H { move-column-left; }
+    Mod+Ctrl+L { move-column-right; }
+
     Mod+Tab repeat=false { focus-workspace-previous; }
     Mod+Shift+Tab repeat=false { spawn-sh "nu ~/.config/niri/scripts/pick_window.nu"; }
 
