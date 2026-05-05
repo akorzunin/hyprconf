@@ -5,27 +5,34 @@ layer-rule {
 }
 spawn-sh-at-startup "waybar -c ~/.config/niri/config.jsonc"
 spawn-at-startup "~/.local/bin/TgWsProxy_linux_amd64"
-spawn-at-startup "dropbox"
-spawn-at-startup "~/.local/bin/hiddify"
 
-spawn-sh-at-startup "zen-browser https://www.youtube.com/feed/subscriptions"
+spawn-at-startup "google-chrome-stable"
 window-rule {
+    match app-id="google-chrome"
     match app-id="firefox"
-    match app-id="zen"
+    match app-id="zen-browser"
     open-on-workspace "main"
 }
 
 spawn-at-startup "spotify-launcher"
 spawn-at-startup "Telegram"
-spawn-sh-at-startup "http_proxy=localhost:12334 https_proxy=localhost:12334 vesktop --enable-features=UseOzonePlatform --ozone-platform=x11"
-spawn-at-startup "obsidian"
 window-rule {
     match app-id="org.telegram.desktop"
     match app-id="spotify"
     match app-id="discord"
-    match app-id="vesktop"
-    match app-id="obsidian"
     open-on-workspace "chat"
+}
+
+spawn-at-startup "obsidian"
+spawn-sh-at-startup "sleep 7; code ~/Documents/mion.front"
+spawn-sh-at-startup "sleep 8; OPENCODE_DISABLE_MODELS_FETCH=1 kitty --class opencode -e opencode ~/Documents/mion.front"
+spawn-sh-at-startup "sleep 9; code ~/Documents/mion.back"
+window-rule {
+    match app-id="obsidian"
+    match app-id="code"
+    match app-id="opencode"
+    match app-id="google-chrome" title="localhost - Google Chrome"
+    open-on-workspace "code"
 }
 
 spawn-sh-at-startup "kitty --class zellij -e zellij a main"

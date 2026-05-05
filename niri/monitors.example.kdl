@@ -15,15 +15,19 @@ output "DP-6" {
     scale 1
     position x=2560 y=0
 }
-workspace "1" {
-    open-on-output "DP-6"
+
+workspace "main" {
+    open-on-output "DP-4"
 }
-workspace "2" {
-    open-on-output "DP-5"
+workspace "code" {
+    open-on-output "DP-4"
 }
-workspace "3" {
-    open-on-output "DP-5"
+workspace "etc" {
+    open-on-output "DP-4"
 }
-workspace "4" {
-    open-on-output "DP-6"
+workspace "magic" {
+    open-on-output "DP-4"
+}
+workspace "chat" {
+    open-on-output "HDMI-A-5"
 }

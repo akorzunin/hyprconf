@@ -49,12 +49,6 @@ spawn-sh-at-startup "echo 'Xcursor.theme:Bibata-Modern-Classic' | xrdb -merge"
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'"
 
-workspace "main" {}
-workspace "chat" {}
-workspace "code" {}
-workspace "etc" {}
-workspace "magic" {}
-
 binds {
     Mod+1 { focus-workspace "main"; }
     Mod+2 { focus-workspace "chat"; }
