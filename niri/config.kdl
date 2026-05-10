@@ -43,7 +43,6 @@ environment {
     ELECTRON_OZONE_PLATFORM_HINT "wayland"
     XCURSOR_THEME "Bibata-Modern-Classic"
     XCURSOR_SIZE "38"
-    DISPLAY null
 }
 spawn-sh-at-startup "echo 'Xcursor.theme:Bibata-Modern-Classic' | xrdb -merge"
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
@@ -166,6 +165,7 @@ window-rule {
 }
 
 prefer-no-csd
+xwayland-satellite {}
 
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
