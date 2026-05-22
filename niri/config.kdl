@@ -128,7 +128,7 @@ binds {
     Mod+N repeat=false { spawn-sh "playerctl next"; }
 
     Mod+Shift+B repeat=false { spawn-sh "killall -SIGUSR1 waybar || waybar -c ~/.config/niri/config.jsonc"; }
-    Mod+Ctrl+B repeat=false { spawn-sh "pkill waybar && waybar -c ~/.config/niri/config.jsonc"; }
+    Mod+Ctrl+B repeat=false { spawn-sh "pkill waybar; waybar -c ~/.config/niri/config.jsonc"; }
 
     XF86AudioRaiseVolume { spawn-sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; }
     XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }

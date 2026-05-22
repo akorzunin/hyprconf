@@ -7,6 +7,7 @@ spawn-sh-at-startup "waybar -c ~/.config/niri/config.jsonc"
 spawn-at-startup "~/.local/bin/TgWsProxy_linux_amd64"
 spawn-at-startup "dropbox"
 spawn-at-startup "~/.local/bin/hiddify"
+spawn-at-startup "hiddify"
 
 spawn-sh-at-startup "zen-browser https://www.youtube.com/feed/subscriptions"
 window-rule {
@@ -22,6 +23,7 @@ spawn-at-startup "obsidian"
 window-rule {
     match app-id="org.telegram.desktop"
     match app-id="spotify"
+    match app-id="Spotify"
     match app-id="discord"
     match app-id="vesktop"
     match app-id="obsidian"

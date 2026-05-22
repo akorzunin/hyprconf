@@ -9,6 +9,7 @@ EOF
 
 sudo tee ~/.zprofile >/dev/null <<"EOF"
 if [[ "$(tty)" == "/dev/tty1" ]]; then
-    exec start-hyprland
+    # exec start-hyprland
+    exec niri-session -l
 fi
 EOF
