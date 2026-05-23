@@ -13,3 +13,6 @@ if [[ "$(tty)" == "/dev/tty1" ]]; then
     exec niri-session -l
 fi
 EOF
+
+# to disable/enable ly login screnn use:
+# sudo systemctl enable ly@tty1
