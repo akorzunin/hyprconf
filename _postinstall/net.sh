@@ -10,7 +10,7 @@ yay -S tg-ws-proxy
 ln -s ~/.local/bin/tg-ws-proxy /usr/sbin/tg-ws-proxy
 
 # hiddify
-curl -o ~/.local/bin/hiddify https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Linux-x64-AppImage.AppImage
+curl -Lo ~/.local/bin/hiddify https://github.com/hiddify/hiddify-app/releases/download/v4.1.1/Hiddify-Linux-x64-AppImage.AppImage
 chmod +x ~/.local/bin/hiddify
 
 # sshuttle
