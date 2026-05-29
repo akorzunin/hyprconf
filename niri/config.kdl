@@ -122,7 +122,7 @@ binds {
     Mod+Ctrl+F { toggle-window-floating; }
 
     Mod+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
-    Mod+Shift+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; OPENCODE_DISABLE_MODELS_FETCH=1 po -e opencode'"; }
+    Mod+Shift+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po -e kitty'"; }
 
     Mod+B repeat=false { spawn-sh "playerctl play-pause"; }
     Mod+N repeat=false { spawn-sh "playerctl next"; }
