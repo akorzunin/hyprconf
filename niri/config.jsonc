@@ -17,9 +17,9 @@
     "memory",
     "pulseaudio",
     "custom/resume-pause",
-    "custom/play-next",
+    "custom/play-next"
     // "custom/keyboard-layout",
-    "battery"
+    // "battery"
   ],
   "custom/niri-column-left": {
     "format": "",
