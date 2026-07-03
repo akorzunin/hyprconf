@@ -59,6 +59,7 @@ binds {
     Mod+2 { focus-workspace "chat"; }
     Mod+3 { focus-workspace "code"; }
     Mod+4 { focus-workspace "etc"; }
+    Mod+5 { focus-workspace "scrap"; }
     Mod+S { focus-workspace "magic"; }
 
     Mod+Shift+1 { move-column-to-workspace "main"; }
@@ -92,10 +93,8 @@ binds {
     Mod+X { focus-column-right; }
     Mod+Up    { focus-workspace-up; }
     Mod+Down  { focus-workspace-down; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-workspace-down; }
     Mod+K     { focus-workspace-up; }
-    Mod+L     { focus-column-right; }
+    Mod+J     { focus-workspace-down; }
     Mod+WheelScrollDown cooldown-ms=150 { focus-column-right; }
     Mod+WheelScrollUp cooldown-ms=150  { focus-column-left; }
     Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
@@ -123,6 +122,7 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+F { toggle-window-floating; }
 
+    Mod+L repeat=false { spawn "hyprlock"; }
     Mod+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
     Mod+Shift+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po -e kitty'"; }
 
@@ -178,6 +178,9 @@ xwayland-satellite {}
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 
-include "startup.kdl"
-// include "startup.local.kdl"
-include "animations.kdl"
+// include "startup.kdl"
+include "startup.local.kdl"
+// include "animations.kdl"
+// animations {
+//     off
+// }
