@@ -121,6 +121,7 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+F { toggle-window-floating; }
+    Mod+W { spawn-sh "whispers"; }
 
     Mod+L repeat=false { spawn "hyprlock"; }
     Mod+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
