@@ -124,8 +124,8 @@ binds {
     Mod+W { spawn-sh "whispers"; }
 
     Mod+L repeat=false { spawn "hyprlock"; }
-    Mod+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
-    Mod+Shift+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po -e kitty'"; }
+    Mod+Shift+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
+    Mod+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po -e kitty'"; }
 
     Mod+B repeat=false { spawn-sh "playerctl play-pause"; }
     Mod+N repeat=false { spawn-sh "playerctl next"; }
