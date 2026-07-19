@@ -25,6 +25,9 @@ workspace "code" {
 workspace "etc" {
     open-on-output "DP-4"
 }
+workspace "scrap" {
+    open-on-output "DP-4"
+}
 workspace "magic" {
     open-on-output "DP-4"
 }
