@@ -5,3 +5,6 @@ xdg-mime default mpv.desktop video/quicktime
 xdg-mime default mpv.desktop video/x-matroska
 xdg-mime default mpv.desktop video/x-msvideo
 xdg-mime default mpv.desktop video/ogg
+
+xdg-mime default nvim.desktop text/plain
+xdg-mime default nvim.desktop text/markdown
