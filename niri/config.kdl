@@ -68,6 +68,7 @@ binds {
 
     Mod+R { spawn "fuzzel"; }
     Mod+Q { spawn "kitty"; }
+    Mod+Ctrl+Q repeat=false { spawn "~/.config/niri/scripts/kitty-at-focused-cwd.sh"; }
     Mod+A { spawn-sh "nu ~/.config/niri/scripts/focus_app.nu obsidian"; }
     Mod+P { spawn-sh "hyprpicker | while read OUTPUT; do notify-send \"$OUTPUT\"; echo -n \"$OUTPUT\" | wl-copy; done"; }
     Mod+C { close-window; }
