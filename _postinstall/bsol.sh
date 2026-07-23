@@ -18,4 +18,3 @@ sudo cp -r bsol/ /boot/grub/themes/bsol
 # terminal-font: "Victor Mono Regular 16"
 #
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
-

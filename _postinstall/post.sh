@@ -11,4 +11,3 @@ if [[ -o interactive ]]; then
     nu
 fi
 ' > ~/.zshrc
-

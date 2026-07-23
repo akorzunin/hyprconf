@@ -9,4 +9,3 @@ browser.search.suggest.enabled true
 
 # about:config
 # When you open a link, image or media in a new tab, switch to it immediately
-

@@ -2,4 +2,3 @@
 yay timeshift
 # to run:
 # sudo -E timeshift
-

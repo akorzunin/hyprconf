@@ -24,4 +24,3 @@ env = GDK_SCALE, 1.25
 # for multi gpu (output of ls -l /dev/dri/by-path)
 # put performant GPU first (id is in first digits of lsgpu output)
 env = AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0
-
