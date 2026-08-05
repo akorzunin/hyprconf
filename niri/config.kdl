@@ -67,7 +67,7 @@ binds {
     Mod+Shift+3 { move-column-to-workspace "code"; }
 
     Mod+R { spawn "fuzzel"; }
-    Mod+Q { spawn "kitty"; }
+    Mod+Q { spawn-sh "kitty --single-instance"; }
     Mod+Ctrl+Q repeat=false { spawn "~/.config/niri/scripts/kitty-at-focused-cwd.sh"; }
     Mod+A { spawn-sh "nu ~/.config/niri/scripts/focus_app.nu obsidian"; }
     Mod+P { spawn-sh "hyprpicker | while read OUTPUT; do notify-send \"$OUTPUT\"; echo -n \"$OUTPUT\" | wl-copy; done"; }
@@ -125,8 +125,8 @@ binds {
     Mod+W { spawn-sh "whispers"; }
 
     Mod+L repeat=false { spawn "hyprlock"; }
-    Mod+Shift+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
-    Mod+O repeat=false { spawn-sh "kitty --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po -e kitty'"; }
+    Mod+Shift+O repeat=false { spawn-sh "kitty --single-instance --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
+    Mod+O repeat=false { spawn-sh "kitty --single-instance --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po -e kitty'"; }
 
     Mod+B repeat=false { spawn-sh "playerctl play-pause"; }
     Mod+N repeat=false { spawn-sh "playerctl next"; }
