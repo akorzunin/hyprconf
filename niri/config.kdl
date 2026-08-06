@@ -74,7 +74,7 @@ binds {
     Mod+C { close-window; }
     Mod+D { toggle-overview; }
 
-    Mod+E repeat=false { spawn-sh "bemoji -n"; }
+    Mod+E repeat=false { spawn-sh "BEMOJI_PICKER_CMD='fuzzel -d -p 🔍 -f FiraCodeNerdFontMono:size=14' bemoji -n"; }
     Mod+Shift+Q repeat=false { spawn-sh "kitty --class zellij -e zellij a main"; }
 
     Print { screenshot; }
