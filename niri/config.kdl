@@ -27,7 +27,7 @@ layout {
     }
     default-column-width { proportion 0.5; }
     focus-ring {
-        width 0
+        off
     }
     border {
         off
@@ -172,6 +172,10 @@ window-rule {
 window-rule {
     match app-id="kitty"
     open-maximized false
+}
+window-rule {
+    match is-focused=false
+    opacity 0.8
 }
 
 prefer-no-csd
