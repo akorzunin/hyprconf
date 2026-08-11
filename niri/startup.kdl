@@ -1,37 +1,7 @@
-spawn-at-startup "hyprpaper"
-layer-rule {
-  match namespace="hyprpaper"
-  place-within-backdrop true
-}
-spawn-sh-at-startup "waybar -c ~/.config/niri/config.jsonc"
-spawn-at-startup "~/.local/bin/TgWsProxy_linux_amd64"
-spawn-at-startup "dropbox"
-spawn-at-startup "~/.local/bin/hiddify"
-spawn-at-startup "hiddify"
-
 spawn-sh-at-startup "zen-browser https://www.youtube.com/feed/subscriptions"
-window-rule {
-    match app-id="firefox"
-    match app-id="zen"
-    open-on-workspace "main"
-}
-
-spawn-at-startup "spotify-launcher"
-spawn-at-startup "Telegram"
-spawn-sh-at-startup "http_proxy=localhost:12334 https_proxy=localhost:12334 vesktop --enable-features=UseOzonePlatform --ozone-platform=x11"
+spawn-sh-at-startup "nu -c 'source $nu.config-path; hdiscord'"
 spawn-at-startup "obsidian"
 window-rule {
-    match app-id="org.telegram.desktop"
-    match app-id="spotify"
-    match app-id="Spotify"
-    match app-id="discord"
-    match app-id="vesktop"
     match app-id="obsidian"
     open-on-workspace "chat"
-}
-
-spawn-sh-at-startup "kitty --class zellij -e zellij a main"
-window-rule {
-    match app-id="zellij"
-    open-on-workspace "magic"
 }

@@ -144,6 +144,10 @@ binds {
     XF86AudioPause { spawn-sh "playerctl play-pause"; }
     XF86AudioPlay { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev { spawn-sh "playerctl previous"; }
+
+    Ctrl+M repeat=false {
+        spawn-sh "xdotool search --class '^vesktop$' windowactivate --sync key --clearmodifiers ctrl+shift+m"
+    }
 }
 
 recent-windows {
@@ -183,6 +187,39 @@ xwayland-satellite {}
 
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+
+// Shared startup
+spawn-at-startup "hyprpaper"
+layer-rule {
+    match namespace="hyprpaper"
+    place-within-backdrop true
+}
+spawn-sh-at-startup "waybar -c ~/.config/niri/config.jsonc"
+spawn-sh-at-startup "nu -c 'source $nu.config-path; hiddify'"
+spawn-sh-at-startup "nu -c 'source $nu.config-path; dropbox-sync'"
+spawn-sh-at-startup "nu -c 'source $nu.config-path; hspotify'"
+spawn-sh-at-startup "nu -c 'source $nu.config-path; htg'"
+spawn-sh-at-startup "kitty --class magic --single-instance"
+spawn-sh-at-startup "kitty --class magic --single-instance"
+
+window-rule {
+    match app-id="firefox"
+    match app-id="zen"
+    open-on-workspace "main"
+}
+window-rule {
+    match app-id="org.telegram.desktop"
+    match app-id="spotify"
+    match app-id="Spotify"
+    match app-id="discord"
+    match app-id="vesktop"
+    open-on-workspace "chat"
+}
+window-rule {
+    match app-id="magic"
+    open-on-workspace "magic"
+    open-maximized false
+}
 
 // include "startup.kdl"
 include "startup.local.kdl"
