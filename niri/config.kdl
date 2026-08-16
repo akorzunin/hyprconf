@@ -179,7 +179,7 @@ window-rule {
 }
 window-rule {
     match is-focused=false
-    opacity 0.8
+    // opacity 0.92
 }
 
 prefer-no-csd
@@ -196,7 +196,7 @@ layer-rule {
 }
 spawn-sh-at-startup "waybar -c ~/.config/niri/config.jsonc"
 spawn-sh-at-startup "nu -c 'source $nu.config-path; hiddify'"
-spawn-sh-at-startup "nu -c 'source $nu.config-path; dropbox-sync'"
+spawn-sh-at-startup "nu -c 'source $nu.config-path; dropbox-sync --tray'"
 spawn-sh-at-startup "nu -c 'source $nu.config-path; hspotify'"
 spawn-sh-at-startup "nu -c 'source $nu.config-path; htg'"
 spawn-sh-at-startup "kitty --class magic --single-instance"
