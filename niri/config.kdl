@@ -145,9 +145,7 @@ binds {
     XF86AudioPlay { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev { spawn-sh "playerctl previous"; }
 
-    Ctrl+M repeat=false {
-        spawn-sh "xdotool search --class '^vesktop$' windowactivate --sync key --clearmodifiers ctrl+shift+m"
-    }
+    Ctrl+Shift+M repeat=false { spawn-sh "~/.config/niri/scripts/mic_mute.sh"; }
 }
 
 recent-windows {
