@@ -67,6 +67,7 @@ binds {
     Mod+Shift+3 { move-column-to-workspace "code"; }
 
     Mod+R { spawn "fuzzel"; }
+    Mod+Shift+R { spawn-sh "vicinae open || ~/.local/bin/vicinae open"; }
     Mod+Q { spawn-sh "kitty --single-instance"; }
     Mod+Ctrl+Q repeat=false { spawn "~/.config/niri/scripts/kitty-at-focused-cwd.sh"; }
     Mod+A { spawn-sh "nu ~/.config/niri/scripts/focus_app.nu obsidian"; }
