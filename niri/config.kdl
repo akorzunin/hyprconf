@@ -176,6 +176,14 @@ window-rule {
     match app-id="kitty"
     open-maximized false
 }
+// Only portal-launched Yazi; new floating windows are centered by default.
+window-rule {
+    match app-id="^yazi-file-picker$"
+    open-maximized false
+    open-floating true
+    default-column-width { proportion 0.8; }
+    default-window-height { proportion 0.8; }
+}
 window-rule {
     match app-id="blueman-manager"
     open-maximized false

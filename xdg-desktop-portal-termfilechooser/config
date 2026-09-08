@@ -1,0 +1,7 @@
+[filechooser]
+cmd=yazi-wrapper.sh
+default_dir=$HOME
+# Preserve title quotes through the backend's expansion and the wrapper's shell.
+env=TERMCMD='kitty --class yazi-file-picker --title "Yazi file picker"'
+open_mode=suggested
+save_mode=suggested

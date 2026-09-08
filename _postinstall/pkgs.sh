@@ -4,6 +4,7 @@ function y() {
 
 # theme utils
 y xdg-desktop-portal-gtk
+y xdg-desktop-portal-termfilechooser-hunkyburrito-git
 y adw-gtk-theme
 y bibata-cursor-theme-bin
 y fastfetch

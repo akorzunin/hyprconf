@@ -1,1 +1,1 @@
-# my config for hyprland
+# my config for ~~hyprland~~ niri
