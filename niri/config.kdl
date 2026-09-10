@@ -69,6 +69,7 @@ binds {
     Mod+R { spawn "fuzzel"; }
     Mod+Shift+R { spawn-sh "vicinae open || ~/.local/bin/vicinae open"; }
     Mod+Q { spawn-sh "kitty --single-instance"; }
+    Mod+T repeat=false { spawn-sh "pkill -f '^nu --no-config-file /home/korzuninav/.config/waybar/scripts/todo[.]nu ui$'; flock \"$XDG_RUNTIME_DIR/waybar-todo.lock\" true; ~/.config/waybar/scripts/todo.sh"; }
     Mod+Ctrl+Q repeat=false { spawn "~/.config/niri/scripts/kitty-at-focused-cwd.sh"; }
     Mod+A { spawn-sh "nu ~/.config/niri/scripts/focus_app.nu obsidian"; }
     Mod+P { spawn-sh "hyprpicker | while read OUTPUT; do notify-send \"$OUTPUT\"; echo -n \"$OUTPUT\" | wl-copy; done"; }
@@ -175,6 +176,16 @@ window-rule {
 window-rule {
     match app-id="kitty"
     open-maximized false
+}
+// Approximate placement under the left-side Waybar modules; exact anchoring
+// would require a layer-shell popup instead of a normal Kitty window.
+window-rule {
+    match app-id="^waybar-todo$"
+    open-maximized false
+    open-floating true
+    default-column-width { proportion 0.5; }
+    default-window-height { proportion 0.5; }
+    default-floating-position x=4 y=0 relative-to="top-left"
 }
 // Only portal-launched Yazi; new floating windows are centered by default.
 window-rule {

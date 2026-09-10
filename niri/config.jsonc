@@ -7,6 +7,7 @@
   "modules-left": [
     "custom/launcher",
     "custom/windows",
+    "custom/todo",
     "niri/workspaces",
     "custom/niri-column-left",
     "custom/niri-column-right"
@@ -21,6 +22,13 @@
     // "custom/keyboard-layout",
     // "battery"
   ],
+  "custom/todo": {
+    "exec": "nu --no-config-file ~/.config/waybar/scripts/todo.nu status",
+    "return-type": "json",
+    "interval": 30,
+    "signal": 11,
+    "on-click": "~/.config/waybar/scripts/todo.sh"
+  },
   "custom/niri-column-left": {
     "format": "",
     "on-click": "niri msg action focus-column-left",
