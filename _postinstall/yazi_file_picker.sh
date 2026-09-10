@@ -13,6 +13,7 @@ for file in xdg-desktop-portal/niri-portals.conf \
             xdg-desktop-portal/hyprland-portals.conf \
             xdg-desktop-portal-termfilechooser/config \
             yazi/keymap.toml \
+            yazi/init.lua \
             yazi/plugins/picker-escape.yazi/main.lua; do
     target="$config_home/$file"
     mkdir -p -- "$(dirname -- "$target")"
