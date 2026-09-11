@@ -69,7 +69,7 @@ binds {
     Mod+R { spawn "fuzzel"; }
     Mod+Shift+R { spawn-sh "vicinae open || ~/.local/bin/vicinae open"; }
     Mod+Q { spawn-sh "kitty --single-instance"; }
-    Mod+T repeat=false { spawn-sh "pkill -f '^nu --no-config-file /home/korzuninav/.config/waybar/scripts/todo[.]nu ui$'; flock \"$XDG_RUNTIME_DIR/waybar-todo.lock\" true; ~/.config/waybar/scripts/todo.sh"; }
+    Mod+T repeat=false { spawn-sh "pkill -f '^nu --no-config-file ~/.config/waybar/scripts/todo[.]nu ui$'; flock \"$XDG_RUNTIME_DIR/waybar-todo.lock\" true; ~/.config/waybar/scripts/todo.sh"; }
     Mod+Ctrl+Q repeat=false { spawn "~/.config/niri/scripts/kitty-at-focused-cwd.sh"; }
     Mod+A { spawn-sh "nu ~/.config/niri/scripts/focus_app.nu obsidian"; }
     Mod+P { spawn-sh "hyprpicker | while read OUTPUT; do notify-send \"$OUTPUT\"; echo -n \"$OUTPUT\" | wl-copy; done"; }
