@@ -124,6 +124,7 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+F { toggle-window-floating; }
+    Mod+Shift+Space { toggle-window-floating; }
     Mod+W { spawn-sh "whispers"; }
 
     Mod+L repeat=false { spawn "hyprlock"; }
@@ -246,9 +247,15 @@ window-rule {
     open-maximized false
 }
 
-// include "startup.kdl"
-include "startup.local.kdl"
-// include "animations.kdl"
-// animations {
-//     off
+// window-rule {
+//     // Godot initially uses title "Godot", then sets the game title after opening
+//     match app-id="^SuperIcosahedron$"
+//     open-maximized false
+//     open-floating true
+//     open-fullscreen false
+//     default-column-width { proportion 0.3; }
+//     default-window-height { proportion 0.3; }
+//     default-floating-position x=900 y=0 relative-to="bottom-right"
 // }
+
+include "startup.local.kdl"
