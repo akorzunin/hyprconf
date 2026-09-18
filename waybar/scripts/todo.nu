@@ -31,17 +31,11 @@ def store-tasks [tasks: list] {
     do { ^pkill -RTMIN+11 -x waybar } | complete | ignore
 }
 
-def choose [items: list, prompt: string] {
-    try { $items | input list $prompt } catch { null }
-}
-
 def edit-text [text: string] {
     let temp = (^mktemp --suffix=.txt | str trim)
     try {
         $text | save --force $temp
-        let editor = ($env.EDITOR? | default 'nvim')
-        # Use sh to support EDITOR values containing arguments; pass the path separately.
-        ^sh -c ('exec ' + $editor + ' "$1"') todo-editor $temp
+        ^nvim -c 'startinsert' -- $temp
         let code = $env.LAST_EXIT_CODE
         let edited = if $code == 0 { open --raw $temp } else { null }
         rm --force $temp
@@ -71,13 +65,13 @@ def ui [] {
         let result = ($menu | enumerate | each {|entry|
             $'($entry.index)(char tab)($entry.item.label)'
         } | str join "\n" | ^fzf --no-sort --disabled --delimiter '\t' --with-nth '2..'
-            --header $'TODO — ($pending) pending · j/k: down/up · Space: toggle · e: edit · y: copy · d: delete · a: add · f: search · p: preview · Enter: actions · q/Esc: quit'
+            --header $'TODO — ($pending) pending · j/k: down/up · Space: toggle · e: edit · y: copy · d: delete · a: add · f: search · p: preview · Enter: toggle/select · q/Esc: quit'
             --prompt 'Tasks> '
             --preview 'nu --no-config-file "$WAYBAR_TODO_SCRIPT" preview {1}'
-            --preview-window 'down,50%,wrap,hidden'
+            --preview-window 'down,50%,wrap'
             --bind 'j:down,k:up,q:abort,p:toggle-preview,alt-up:preview-up,alt-down:preview-down'
             --bind 'space:print(space)+accept,e:print(e)+accept,y:print(y)+accept,d:print(d)+accept,a:print(a)+accept,enter:print(enter)+accept'
-            --bind 'f:enable-search+unbind(space,e,y,d,a,f,p,j,k,q)+change-prompt(Search> )+change-header(Type to search · Enter: actions for matching task · Esc: quit)'
+            --bind 'f:enable-search+unbind(space,e,y,d,a,f,p,j,k,q)+change-prompt(Search> )+change-header(Type to search · Enter: toggle/select · Esc: quit)'
             --bind ('start:pos(' + (($cursor + 1) | into string) + ')') | complete)
         if $result.exit_code in [1 130] { break }
         if $result.exit_code != 0 {
@@ -98,7 +92,11 @@ def ui [] {
                 }
             }
             'clear' => {
-                if ($tasks | is-not-empty) and (choose ['Cancel' 'Clear all tasks'] 'Delete every task?') == 'Clear all tasks' {
+                if ($tasks | is-empty) { continue }
+                let confirmation = (['Cancel' 'Clear all tasks'] | str join "\n"
+                    | ^fzf --no-sort --disabled --header 'Delete every task?'
+                        --bind 'j:down,k:up,q:abort' --prompt 'Confirm> ' | complete)
+                if $confirmation.exit_code == 0 and ($confirmation.stdout | str trim) == 'Clear all tasks' {
                     $tasks = []
                     store-tasks $tasks
                 }
@@ -107,11 +105,11 @@ def ui [] {
                 let index = $selected.index
                 let task = ($tasks | get $index)
                 let action = (match $key {
-                    'space' => { 'Toggle done' }
+                    'space' | 'enter' => { 'Toggle done' }
                     'e' => { 'Edit' }
                     'y' => { 'Copy' }
                     'd' => { 'Delete' }
-                    _ => { choose ['Toggle done' 'Edit' 'Copy' 'Delete' 'Back'] $task.text }
+                    _ => { continue }
                 })
                 match $action {
                     'Toggle done' => {
@@ -126,7 +124,11 @@ def ui [] {
                         }
                     }
                     'Copy' => {
-                        $task.text | ^wl-copy
+                        # wl-copy forks a clipboard owner; don't let it retain terminal streams.
+                        let copied = ($task.text | ^sh -c 'exec wl-copy >/dev/null 2>&1' | complete)
+                        if $copied.exit_code != 0 {
+                            error make {msg: 'Could not copy task to clipboard'}
+                        }
                     }
                     'Delete' => {
                         $tasks = ($tasks | enumerate | where index != $index | get item)
