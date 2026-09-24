@@ -62,6 +62,7 @@
     "format": "{icon}  {volume}%",
     "format-muted": " ",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-middle": "~/.config/waybar/scripts/select-audio-output.sh",
     "on-click-right": "~/.config/waybar/scripts/pulsemixer.sh",
     "format-icons": {
       "default": [" ", " ", " "]

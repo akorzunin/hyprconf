@@ -1,7 +1,2 @@
-spawn-sh-at-startup "zen-browser https://www.youtube.com/feed/subscriptions"
 spawn-sh-at-startup "nu -c 'source $nu.config-path; hdiscord'"
-spawn-at-startup "obsidian"
-window-rule {
-    match app-id="obsidian"
-    open-on-workspace "chat"
-}
+spawn-sh-at-startup "zen-browser https://www.youtube.com/feed/subscriptions"
