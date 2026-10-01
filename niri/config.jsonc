@@ -19,7 +19,6 @@
     "pulseaudio",
     "custom/resume-pause",
     "custom/play-next"
-    // "custom/keyboard-layout",
     // "battery"
   ],
   "custom/todo": {
@@ -118,14 +117,6 @@
     "format": " 󰐎 ",
     "on-click": "sleep 0.1; playerctl play-pause",
     "tooltip-format": "Play / Stop"
-  },
-  "custom/keyboard-layout": {
-    "interval": 2,
-    "format": "󰌌  {}",
-    "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap' | cut -c1-2 | tr '[:upper:]' '[:lower:]'",
-    "tooltip-format": "Keybaord layout: {}",
-    "signal": 10,
-    "on-click": "hyprctl switchxkblayout all next"
   },
   "tray": {
     "icon-size": 21,

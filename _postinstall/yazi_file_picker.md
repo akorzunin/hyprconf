@@ -1,4 +1,4 @@
-# Yazi as the file picker (Arch, Niri / Hyprland)
+# Yazi as the file picker (Arch, Niri)
 
 Uses the [hunkyburrito portal backend](https://github.com/hunkyburrito/xdg-desktop-portal-termfilechooser)
 with its packaged Yazi wrapper and Kitty. Only portal-aware applications use it;
@@ -13,9 +13,8 @@ Run as your normal desktop user, not root. Install `yay` first if needed
 sudo pacman -S --needed base-devel git kitty yazi xdg-desktop-portal xdg-desktop-portal-gtk
 yay -S --needed xdg-desktop-portal-termfilechooser-hunkyburrito-git
 
-# Install the backend for your compositor (keep it for screen sharing):
-sudo pacman -S --needed xdg-desktop-portal-gnome     # Niri
-# sudo pacman -S --needed xdg-desktop-portal-hyprland # Hyprland
+# Keep Niri's backend for screen sharing:
+sudo pacman -S --needed xdg-desktop-portal-gnome
 
 cd /path/to/hyprconf
 sh _postinstall/yazi_file_picker.sh
@@ -40,7 +39,6 @@ The AUR package tracks upstream Git; these steps reproduce the setup, not a pinn
   and the application's suggested open/save location (home when unspecified).
 - `xdg-desktop-portal/niri-portals.conf`: GNOME/GTK defaults, GTK access and
   notifications, GNOME Keyring secrets; only FileChooser switches to Yazi.
-- `xdg-desktop-portal/hyprland-portals.conf`: Hyprland/GTK defaults, Yazi FileChooser.
 
 Desktop-specific portal configs preserve screen-sharing backends. Portal configs
 are not merged: keep the default/interface entries when customizing these files.
@@ -89,13 +87,13 @@ journalctl --user -b -u xdg-desktop-portal -u xdg-desktop-portal-termfilechooser
 systemctl --user show-environment | grep XDG_CURRENT_DESKTOP
 ```
 
-The service environment should identify `niri` or `Hyprland`. If it is stale,
+The service environment should identify `niri`. If it is stale,
 log out/in. Check for higher-priority custom portal configuration if the old
 picker persists. Non-portal dialogs cannot be replaced by this backend.
 
 ## Undo
 
-Remove the five symlinks created by the linker from `~/.config` (or your
+Remove the six symlinks created by the linker from `~/.config` (or your
 `XDG_CONFIG_HOME`), restore any numbered backups, and restart
 `xdg-desktop-portal.service`. Without overrides, the system desktop defaults apply.
 Reset the browser preference if desired. The backend package may remain installed.

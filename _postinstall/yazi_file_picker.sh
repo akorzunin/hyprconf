@@ -10,7 +10,6 @@ if [ ! -f /usr/share/xdg-desktop-portal/portals/termfilechooser.portal ]; then
 fi
 
 for file in xdg-desktop-portal/niri-portals.conf \
-            xdg-desktop-portal/hyprland-portals.conf \
             xdg-desktop-portal-termfilechooser/config \
             yazi/keymap.toml \
             yazi/init.lua \
