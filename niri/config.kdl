@@ -130,6 +130,7 @@ binds {
     Mod+L repeat=false { spawn "hyprlock"; }
     Mod+Shift+O repeat=false { spawn-sh "kitty --single-instance --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po; exit'"; }
     Mod+O repeat=false { spawn-sh "kitty --single-instance --class kitty-fzf-picker -e nu -c 'source $nu.config-path; po -e kitty'"; }
+    Mod+Shift+G repeat=false { spawn "kitty" "--single-instance" "--title" "Git push check" "-e" "nu" "-e" "$env.config.show_banner = false; push-check"; }
 
     Mod+B repeat=false { spawn-sh "playerctl play-pause"; }
     Mod+N repeat=false { spawn-sh "playerctl next"; }
