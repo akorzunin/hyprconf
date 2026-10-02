@@ -189,6 +189,16 @@ window-rule {
     default-window-height { proportion 0.5; }
     default-floating-position x=4 y=0 relative-to="top-left"
 }
+// Approximate placement below the right-side audio module; exact anchoring
+// requires a layer-shell popup instead of a normal Kitty window.
+window-rule {
+    match app-id="^waybar-audio-output$"
+    open-maximized false
+    open-floating true
+    default-column-width { fixed 520; }
+    default-window-height { fixed 260; }
+    default-floating-position x=80 y=0 relative-to="top-right"
+}
 // Only portal-launched Yazi; new floating windows are centered by default.
 window-rule {
     match app-id="^yazi-file-picker$"
