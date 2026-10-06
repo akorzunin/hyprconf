@@ -1,5 +1,5 @@
 #!/bin/sh
-# Link only picker configs; do not replace unrelated portal settings.
+# Link only portal configs; Yazi settings are owned by the dotfiles repo.
 set -eu
 repo=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 config_home=${XDG_CONFIG_HOME:-$HOME/.config}
@@ -10,10 +10,7 @@ if [ ! -f /usr/share/xdg-desktop-portal/portals/termfilechooser.portal ]; then
 fi
 
 for file in xdg-desktop-portal/niri-portals.conf \
-            xdg-desktop-portal-termfilechooser/config \
-            yazi/keymap.toml \
-            yazi/init.lua \
-            yazi/plugins/picker-escape.yazi/main.lua; do
+            xdg-desktop-portal-termfilechooser/config; do
     target="$config_home/$file"
     mkdir -p -- "$(dirname -- "$target")"
     if [ "$(readlink -- "$target" || true)" != "$repo/$file" ]; then

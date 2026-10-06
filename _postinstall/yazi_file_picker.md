@@ -16,6 +16,9 @@ yay -S --needed xdg-desktop-portal-termfilechooser-hunkyburrito-git
 # Keep Niri's backend for screen sharing:
 sudo pacman -S --needed xdg-desktop-portal-gnome
 
+# Shared Yazi settings (Git status, chooser-only Esc and double-click):
+sh /path/to/dotfiles/install.sh
+
 cd /path/to/hyprconf
 sh _postinstall/yazi_file_picker.sh
 systemctl --user daemon-reload
@@ -28,8 +31,9 @@ also applies the settings. Fully restart the browser/application afterward.
 
 The linker can be rerun, respects `XDG_CONFIG_HOME`, and backs up existing files
 as `filename.~1~`, etc. Keep this checkout in place: installed configs are symlinks.
-If you already have a Yazi `keymap.toml`, merge this repo's Esc binding into it
-instead of replacing your other custom bindings (the linker backs up the old file).
+Yazi settings now live in the separate dotfiles repo (`dot_config/yazi`), shared
+by normal Yazi and chooser mode. Run its setup when migrating old Hyprconf Yazi
+symlinks; this linker no longer creates or overwrites them.
 It is separate from `install.sh` so the backend must be installed before opting in.
 The AUR package tracks upstream Git; these steps reproduce the setup, not a pinned build.
 
@@ -68,7 +72,9 @@ Test an upload and Save As from your browser:
   Yazi (`--chooser-file`), without accepting the current directory. Normal Yazi
   retains its usual Esc behavior. Prompts/help retain their own Esc bindings;
   dismiss them first, then press Esc in the file list to close the picker.
-  This uses `yazi/keymap.toml` and `yazi/plugins/picker-escape.yazi/main.lua`.
+  This uses dotfiles' `dot_config/yazi/keymap.toml` and
+  `dot_config/yazi/plugins/picker-escape.yazi/main.lua`.
+- Double-click: submit a file in chooser mode only (dotfiles' `init.lua`).
 - Save: the wrapper can create a placeholder with instructions; navigate/rename
   it as needed, then select it with Enter to return the destination to the app.
 
@@ -93,7 +99,7 @@ picker persists. Non-portal dialogs cannot be replaced by this backend.
 
 ## Undo
 
-Remove the six symlinks created by the linker from `~/.config` (or your
+Remove the two portal symlinks created by the linker from `~/.config` (or your
 `XDG_CONFIG_HOME`), restore any numbered backups, and restart
 `xdg-desktop-portal.service`. Without overrides, the system desktop defaults apply.
 Reset the browser preference if desired. The backend package may remain installed.
