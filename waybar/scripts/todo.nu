@@ -69,9 +69,10 @@ def ui [] {
             --prompt 'Tasks> '
             --preview 'nu --no-config-file "$WAYBAR_TODO_SCRIPT" preview {1}'
             --preview-window 'down,50%,wrap'
-            --bind 'j:down,k:up,q:abort,p:toggle-preview,alt-up:preview-up,alt-down:preview-down'
-            --bind 'space:print(space)+accept,e:print(e)+accept,y:print(y)+accept,d:print(d)+accept,a:print(a)+accept,enter:print(enter)+accept'
-            --bind 'f:enable-search+unbind(space,e,y,d,a,f,p,j,k,q)+change-prompt(Search> )+change-header(Type to search · Enter: toggle/select · Esc: quit)'
+            # Russian ЙЦУКЕН aliases keep shortcuts on the same physical keys.
+            --bind 'j:down,о:down,k:up,л:up,q:abort,й:abort,p:toggle-preview,з:toggle-preview,alt-up:preview-up,alt-down:preview-down'
+            --bind 'space:print(space)+accept,e:print(e)+accept,у:print(e)+accept,y:print(y)+accept,н:print(y)+accept,d:print(d)+accept,в:print(d)+accept,a:print(a)+accept,ф:print(a)+accept,enter:print(enter)+accept'
+            --bind 'f:enable-search+unbind(space,e,у,y,н,d,в,a,ф,f,а,p,з,j,о,k,л,q,й)+change-prompt(Search> )+change-header(Type to search · Enter: toggle/select · Esc: quit),а:enable-search+unbind(space,e,у,y,н,d,в,a,ф,f,а,p,з,j,о,k,л,q,й)+change-prompt(Search> )+change-header(Type to search · Enter: toggle/select · Esc: quit)'
             --bind ('start:pos(' + (($cursor + 1) | into string) + ')') | complete)
         if $result.exit_code in [1 130] { break }
         if $result.exit_code != 0 {
@@ -95,7 +96,7 @@ def ui [] {
                 if ($tasks | is-empty) { continue }
                 let confirmation = (['Cancel' 'Clear all tasks'] | str join "\n"
                     | ^fzf --no-sort --disabled --header 'Delete every task?'
-                        --bind 'j:down,k:up,q:abort' --prompt 'Confirm> ' | complete)
+                        --bind 'j:down,о:down,k:up,л:up,q:abort,й:abort' --prompt 'Confirm> ' | complete)
                 if $confirmation.exit_code == 0 and ($confirmation.stdout | str trim) == 'Clear all tasks' {
                     $tasks = []
                     store-tasks $tasks
