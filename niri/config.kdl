@@ -81,6 +81,8 @@ binds {
     Mod+Shift+Q repeat=false { spawn-sh "kitty --class zellij -e zellij a main"; }
 
     Print { screenshot; }
+    Ctrl+Print repeat=false { screenshot-screen; }
+    Alt+Print repeat=false { screenshot-window; }
     Mod+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
     Mod+Shift+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy && notify-send 'Screenshot saved'"; }
     Mod+V { spawn-sh r"cliphist list \
