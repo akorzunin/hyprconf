@@ -29,7 +29,10 @@ systemctl --user restart xdg-desktop-portal.service
 Restarting portals can interrupt active screen sharing. Logging out/in instead
 also applies the settings. Fully restart the browser/application afterward.
 
-The linker can be rerun, respects `XDG_CONFIG_HOME`, and backs up existing files
+The linker skips the backend package when already installed; otherwise it uses
+`yay -S --needed` without a package-selection prompt. Package upgrades are left
+to your normal system update.
+It can be rerun, respects `XDG_CONFIG_HOME`, and backs up existing files
 as `filename.~1~`, etc. Keep this checkout in place: installed configs are symlinks.
 Yazi settings now live in the separate dotfiles repo (`dot_config/yazi`), shared
 by normal Yazi and chooser mode. Run its setup when migrating old Hyprconf Yazi

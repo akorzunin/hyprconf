@@ -3,3 +3,4 @@ hypr/local.conf
 *.local.conf
 *.local.kdl
 /kitty/unicode-input-favorites.conf
+**/__pycache__

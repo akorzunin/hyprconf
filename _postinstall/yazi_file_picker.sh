@@ -3,7 +3,10 @@
 set -eu
 repo=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 config_home=${XDG_CONFIG_HOME:-$HOME/.config}
-yay --noconfirm --answerdiff=None --answeredit=None xdg-desktop-portal-termfilechooser-hunkyburrito-git
+package=xdg-desktop-portal-termfilechooser-hunkyburrito-git
+if ! pacman -Q "$package" >/dev/null 2>&1; then
+    yay -S --needed --noconfirm --answerdiff=None --answeredit=None "$package"
+fi
 if [ ! -f /usr/share/xdg-desktop-portal/portals/termfilechooser.portal ]; then
     echo 'Install xdg-desktop-portal-termfilechooser-hunkyburrito-git first (see _postinstall/yazi_file_picker.md).' >&2
     exit 1
