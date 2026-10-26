@@ -111,6 +111,11 @@ binds {
     Mod+Ctrl+Up    { move-column-to-workspace-up; }
     Mod+Ctrl+Down  { move-column-to-workspace-down; }
 
+    Mod+Alt+Left  { spawn "niri" "msg" "action" "move-floating-window" "--x=-1"; }
+    Mod+Alt+Right { spawn "niri" "msg" "action" "move-floating-window" "--x=+1"; }
+    Mod+Alt+Up    { spawn "niri" "msg" "action" "move-floating-window" "--y=-1"; }
+    Mod+Alt+Down  { spawn "niri" "msg" "action" "move-floating-window" "--y=+1"; }
+
     Mod+Ctrl+J { move-window-down; }
     Mod+Ctrl+K { move-window-up; }
     Mod+Ctrl+H { move-column-left; }
