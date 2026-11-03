@@ -85,6 +85,7 @@ binds {
     Alt+Print repeat=false { screenshot-window; }
     Mod+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy"; }
     Mod+Shift+Print repeat=false { spawn-sh "grim -g \"$(slurp -d)\" - | wl-copy && notify-send 'Screenshot saved'"; }
+    Mod+Shift+V repeat=false { spawn-sh "kitty --single-instance --class clipboard-history --title 'Clipboard images' -e ~/.config/niri/scripts/clipboard-history.sh"; }
     Mod+V { spawn-sh r"cliphist list \
         | fuzzel -d --with-nth 2 -w 80% -l 20 \
         --font 'Fira Code Nerd Font Mono:size=12'\
@@ -206,6 +207,13 @@ window-rule {
     default-column-width { fixed 520; }
     default-window-height { fixed 260; }
     default-floating-position x=80 y=0 relative-to="top-right"
+}
+window-rule {
+    match app-id="^clipboard-history$"
+    open-maximized false
+    open-floating true
+    default-column-width { proportion 0.8; }
+    default-window-height { proportion 0.8; }
 }
 // Only portal-launched Yazi; new floating windows are centered by default.
 window-rule {
