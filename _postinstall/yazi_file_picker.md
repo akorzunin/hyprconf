@@ -54,7 +54,9 @@ are not merged: keep the default/interface entries when customizing these files.
 
 The picker launches Kitty with the dedicated app ID `yazi-file-picker`.
 The rule in `niri/config.kdl` opens only that app ID floating, centered (Niri's
-default for new floating windows), at 50% width and 50% height.
+default for new floating windows), at 80% width and 80% height.
+`open-focused true` lets the picker take focus even when Firefox is fullscreen;
+otherwise Niri keeps the fullscreen window focused and hides floating windows.
 Normal Kitty/Yazi windows are unaffected. Use this repo's Niri config (linked
 by `install.sh`), or copy its `yazi-file-picker` window rule into your config.
 After changing the picker command, restart

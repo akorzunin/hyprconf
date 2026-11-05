@@ -73,5 +73,13 @@ class PickerSetupTest(unittest.TestCase):
         self.assertFalse(self.log.exists())
 
 
+class PickerWindowRuleTest(unittest.TestCase):
+    def test_picker_takes_focus_over_fullscreen_callers(self):
+        config = (ROOT / "niri/config.kdl").read_text()
+        rule = config.split('match app-id="^yazi-file-picker$"', 1)[1].split("\n}", 1)[0]
+        self.assertRegex(rule, r"(?m)^\s*open-floating true\s*$")
+        self.assertRegex(rule, r"(?m)^\s*open-focused true\s*$")
+
+
 if __name__ == "__main__":
     unittest.main()
