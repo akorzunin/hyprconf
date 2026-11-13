@@ -71,6 +71,7 @@ binds {
     Mod+Ctrl+R repeat=false { spawn-sh "~/.config/niri/scripts/record-system-audio.sh"; }
     Mod+Q { spawn-sh "kitty --single-instance"; }
     Mod+T repeat=false { spawn-sh "~/.config/waybar/scripts/todo.sh"; }
+    Mod+Shift+T repeat=false { spawn-sh "kitty --single-instance --class google-translate --title 'Google Translate' -e ~/.local/bin/translate"; }
     Mod+Ctrl+Q repeat=false { spawn "~/.config/niri/scripts/kitty-at-focused-cwd.sh"; }
     Mod+A { spawn-sh "nu ~/.config/niri/scripts/focus_app.nu obsidian"; }
     Mod+P { spawn-sh "hyprpicker | while read OUTPUT; do notify-send \"$OUTPUT\"; echo -n \"$OUTPUT\" | wl-copy; done"; }
@@ -213,6 +214,14 @@ window-rule {
     open-maximized false
     open-floating true
     default-column-width { proportion 0.8; }
+    default-window-height { proportion 0.8; }
+}
+window-rule {
+    match app-id="^google-translate$"
+    open-maximized false
+    open-floating true
+    open-focused true
+    default-column-width { proportion 0.5; }
     default-window-height { proportion 0.8; }
 }
 // Only portal-launched Yazi; new floating windows are centered by default.
